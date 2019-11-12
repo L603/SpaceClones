@@ -2,10 +2,9 @@ cmake_minimum_required(VERSION 3.10.0)
 
 project(clone)
 
-set
-(
-	SOURCES
-	main.cpp
+set(SRC_DIR ./src)
+set(SOURCES
+	${SRC_DIR}/main.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
