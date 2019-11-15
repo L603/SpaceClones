@@ -23,6 +23,19 @@ int main(int argc, char *argv[])
 		}
 
 		window.clear();
+
+		sf::CircleShape cir(100);
+
+		cir.setPosition
+		(
+			window.getSize().x/2-cir.getRadius(),
+			window.getSize().y/2-cir.getRadius()
+		);
+
+		cir.setFillColor(sf::Color(255, 255, 255));
+
+		window.draw(cir);
+
 		window.display();
 	}
 
