@@ -12,4 +12,8 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 include(FindPkgConfig)
 pkg_check_modules(SFML sfml-all)
 
-target_link_libraries(${PROJECT_NAME} ${SFML})
+target_link_libraries(${PROJECT_NAME}
+	sfml-system
+	sfml-window
+	sfml-graphics
+)
