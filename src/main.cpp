@@ -26,11 +26,10 @@ int main(int argc, char *argv[])
 
 		sf::CircleShape cir(100);
 
-		cir.setPosition
-		(
-			window.getSize().x/2-cir.getRadius(),
-			window.getSize().y/2-cir.getRadius()
-		);
+		sf::Vector2f pos = (sf::Vector2f)window.getSize()*0.5f;
+		pos -= sf::Vector2f(cir.getRadius(),cir.getRadius());
+
+		cir.setPosition(pos);
 
 		cir.setFillColor(sf::Color(255, 255, 255));
 
