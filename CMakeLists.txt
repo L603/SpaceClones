@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.10.0)
 
+include(GNUInstallDirs)
+include(FindPkgConfig)
+
+# El nombre del proyecto
 project(clone)
 
+# Unas cuantas definiciones
 set(SRC_DIR ./src)
 set(SOURCES
 	${SRC_DIR}/main.cpp
@@ -9,7 +14,7 @@ set(SOURCES
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-include(FindPkgConfig)
+# Buscando y linkeando SFML
 pkg_check_modules(SFML sfml-all)
 
 target_link_libraries(${PROJECT_NAME}
@@ -17,3 +22,9 @@ target_link_libraries(${PROJECT_NAME}
 	sfml-window
 	sfml-graphics
 )
+
+# Install target
+install(TARGETS clone
+	DESTINATION ${CMAKE_INSTALL_BINDIR}
+	)
+
