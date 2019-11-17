@@ -7,6 +7,7 @@
 
 #include "gameObject.h"
 
+
 class Scene
 {
 private:
@@ -15,7 +16,7 @@ private:
 	b2World world;
 	sf::RenderWindow window;
 
-	std::vector<GameObject> objects;
+	std::vector<std::unique_ptr<GameObject>> objects;
 
 public:
 	Scene();

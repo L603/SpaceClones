@@ -5,9 +5,10 @@
 #include <Box2D/Box2D.h>
 #include <vector>
 
+
 class Scene;
 
-class GameObject
+class GameObject : public sf::Transformable
 {
 private:
 	Scene* myScene;
