@@ -7,6 +7,7 @@ Puedes instalarlo desde el [aur](https://aur.archlinux.org/packages/spaceclones-
 
 #### Otros distros
 Primero tienes que instalar las dependencias:
+* `box2d`
 * `cmake`
 * `git`
 * `sfml`
