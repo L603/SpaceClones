@@ -18,13 +18,15 @@ private:
 
 	std::vector<std::unique_ptr<GameObject>> objects;
 
+	void render();
+
 public:
 	Scene();
 	virtual ~Scene();
 
 	sf::RenderWindow& getWindow();
 
-	void render();
+	void start();
 };
 
 #endif /* SCENE_H */
