@@ -23,6 +23,8 @@ public:
 	virtual ~Scene();
 
 	sf::RenderWindow& getWindow();
+
+	void render();
 };
 
 #endif /* SCENE_H */

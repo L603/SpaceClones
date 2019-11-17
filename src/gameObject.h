@@ -14,7 +14,7 @@ private:
 	Scene* myScene;
 
 public:
-	GameObject(Scene* newScene);
+	GameObject(Scene* _myScene);
 	virtual ~GameObject();
 };
 
