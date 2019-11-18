@@ -19,6 +19,14 @@ sf::RenderWindow& Scene::getWindow()
 	return window;
 }
 
+void Scene::render()
+{
+	for(const auto i:renderObjects)
+	{
+		window.draw(*i.lock());
+	}
+}
+
 void Scene::start()
 {
 	auto nave = Nave::spawn(*this);
@@ -39,7 +47,8 @@ void Scene::start()
 
 		window.clear();
 
-		window.draw(*nave.lock());
+		// Aquí es donde se renderiza todo
+		render();
 
 		window.display();
 	}
@@ -52,8 +61,12 @@ std::weak_ptr<GameObject> Scene::addObject(GameObject* newObject)
 	auto newPointer = std::shared_ptr<GameObject>(newObject);
 	objects.push_back(newPointer);
 
-	// TODO
-	// Falta poner una lista con objetos rederizables
+	// Añadiendo a la lista de objetos para renderizar
+	auto newRenderable = std::dynamic_pointer_cast<sf::Drawable>(newPointer);
+	if(newRenderable)
+	{
+		renderObjects.push_back(newRenderable);
+	}
 
 	return newPointer;
 }

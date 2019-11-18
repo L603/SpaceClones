@@ -17,6 +17,7 @@ private:
 	sf::RenderWindow window;
 
 	std::vector<std::shared_ptr<GameObject>> objects;
+	std::vector<std::weak_ptr<sf::Drawable>> renderObjects;
 
 	void render();
 
