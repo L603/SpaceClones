@@ -12,7 +12,8 @@ public:
 	enum faction
 	{
 		alien,
-		nave
+		nave,
+		barrera
 	};
 
 protected:
@@ -24,6 +25,8 @@ protected:
 
 public:
 	RigidBody(pixel _radius, faction _myFaction);
+
+	virtual void checkCollision(std::weak_ptr<RigidBody> target);
 	virtual ~RigidBody();
 
 	faction getFaction();
