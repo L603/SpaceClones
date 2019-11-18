@@ -12,9 +12,6 @@
 class Scene
 {
 private:
-
-	//b2Vec2 gravity;
-	//b2World world;
 	sf::RenderWindow window;
 
 	std::vector<std::shared_ptr<GameObject>> objects;

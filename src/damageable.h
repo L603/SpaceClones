@@ -11,6 +11,8 @@ protected:
 public:
 	Damageable();
 	virtual ~Damageable();
+
+	void damage(hp _damage);
 };
 
 #endif /* DAMAGEABLE_H */
