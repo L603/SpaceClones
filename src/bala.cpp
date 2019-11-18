@@ -12,13 +12,23 @@
 Bala::Bala(Scene& _myScene, sf::Vector2f _velocity, hp _damage):
 	GameObject(_myScene),
 	velocity(_velocity),
-	damage(_damage){};
+	damage(_damage),
+	vida(60){};
 
 
 Bala::~Bala(){};
 
+hp Bala::getVida()
+{
+	return vida;
+}
+
 void Bala::update()
 {
+	if(vida-- <= 0)
+	{
+		despawn();
+	}
 	move(velocity);
 }
 

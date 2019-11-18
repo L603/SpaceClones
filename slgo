@@ -1,0 +1,653 @@
+[ 16%] Building CXX object CMakeFiles/clone.dir/src/scene.cpp.o
+/home/otreblan/Utec/obj/SpaceClones/src/scene.cpp: En la función miembro ‘void Scene::postUpdate()’:
+/home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:48:79: error: no hay una función coincidente para la llamada a ‘remove(std::vector<std::weak_ptr<sf::Drawable> >::iterator, std::vector<std::weak_ptr<sf::Drawable> >::iterator, Scene::postUpdate()::<lambda(std::weak_ptr<sf::Drawable>)>, std::vector<std::weak_ptr<sf::Drawable> >::iterator)’
+   48 |   [](std::weak_ptr<sf::Drawable> i){ return i.expired();}, renderObjects.end());
+      |                                                                               ^
+In file included from /usr/include/c++/9.2.0/cstdio:42,
+                 from /usr/include/c++/9.2.0/ext/string_conversions.h:43,
+                 from /usr/include/c++/9.2.0/bits/basic_string.h:6493,
+                 from /usr/include/c++/9.2.0/string:55,
+                 from /usr/include/c++/9.2.0/stdexcept:39,
+                 from /usr/include/c++/9.2.0/array:39,
+                 from /usr/include/c++/9.2.0/tuple:39,
+                 from /usr/include/c++/9.2.0/bits/unique_ptr.h:37,
+                 from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/stdio.h:146:12: nota: candidate: ‘int remove(const char*)’
+  146 | extern int remove (const char *__filename) __THROW;
+      |            ^~~~~~
+/usr/include/stdio.h:146:12: nota:   el candidato espera 1 argumento, se proporcionaron 4
+In file included from /usr/include/c++/9.2.0/algorithm:62,
+                 from /usr/include/SFML/System/Utf.hpp:32,
+                 from /usr/include/SFML/System/String.hpp:32,
+                 from /usr/include/SFML/System.hpp:42,
+                 from /usr/include/SFML/Window.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/c++/9.2.0/bits/stl_algo.h:896:5: nota: candidate: ‘template<class _FIter, class _Tp> _FIter std::remove(_FIter, _FIter, const _Tp&)’
+  896 |     remove(_ForwardIterator __first, _ForwardIterator __last,
+      |     ^~~~~~
+/usr/include/c++/9.2.0/bits/stl_algo.h:896:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+/home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:48:79: nota:   el candidato espera 3 argumentos, se proporcionaron 4
+   48 |   [](std::weak_ptr<sf::Drawable> i){ return i.expired();}, renderObjects.end());
+      |                                                                               ^
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h: En la instanciación de ‘bool __gnu_cxx::__ops::_Iter_equals_val<_Value>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<std::shared_ptr<GameObject>*, std::vector<std::shared_ptr<GameObject> > >; _Value = bool(std::shared_ptr<GameObject>)]’:
+/usr/include/c++/9.2.0/bits/stl_algo.h:869:13:   se requiere desde ‘_ForwardIterator std::__remove_if(_ForwardIterator, _ForwardIterator, _Predicate) [with _ForwardIterator = __gnu_cxx::__normal_iterator<std::shared_ptr<GameObject>*, std::vector<std::shared_ptr<GameObject> > >; _Predicate = __gnu_cxx::__ops::_Iter_equals_val<bool(std::shared_ptr<GameObject>)>]’
+/usr/include/c++/9.2.0/bits/stl_algo.h:906:30:   se requiere desde ‘_FIter std::remove(_FIter, _FIter, const _Tp&) [with _FIter = __gnu_cxx::__normal_iterator<std::shared_ptr<GameObject>*, std::vector<std::shared_ptr<GameObject> > >; _Tp = bool(std::shared_ptr<GameObject>)]’
+/home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:44:71:   se requiere desde aquí
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: error: no match for ‘operator==’ (operand types are ‘std::shared_ptr<GameObject>’ and ‘bool(std::shared_ptr<GameObject>)’)
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:67,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/stl_iterator.h:886:5: nota: candidate: ‘template<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)’
+  886 |     operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_iterator.h:886:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const __gnu_cxx::__normal_iterator<_IteratorL, _Container>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:67,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/stl_iterator.h:893:5: nota: candidate: ‘template<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)’
+  893 |     operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_iterator.h:893:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const __gnu_cxx::__normal_iterator<_Iterator, _Container>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:64,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/stl_pair.h:448:5: nota: candidate: ‘template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)’
+  448 |     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_pair.h:448:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::pair<_T1, _T2>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:67,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/stl_iterator.h:325:5: nota: candidate: ‘template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)’
+  325 |     operator==(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_iterator.h:325:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::reverse_iterator<_Iterator>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:67,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/stl_iterator.h:363:5: nota: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)’
+  363 |     operator==(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_iterator.h:363:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::reverse_iterator<_Iterator>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:67,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/stl_iterator.h:1139:5: nota: candidate: ‘template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)’
+ 1139 |     operator==(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_iterator.h:1139:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::move_iterator<_IteratorL>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:67,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/stl_iterator.h:1145:5: nota: candidate: ‘template<class _Iterator> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)’
+ 1145 |     operator==(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_iterator.h:1145:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::move_iterator<_IteratorL>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/memory:63,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/allocator.h:168:5: nota: candidate: ‘template<class _T1, class _T2> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_T2>&)’
+  168 |     operator==(const allocator<_T1>&, const allocator<_T2>&)
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/allocator.h:168:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::allocator<_Tp1>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/iosfwd:40,
+                 from /usr/include/c++/9.2.0/memory:72,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/postypes.h:222:5: nota: candidate: ‘template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)’
+  222 |     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/postypes.h:222:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::fpos<_StateT>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/string:55,
+                 from /usr/include/c++/9.2.0/stdexcept:39,
+                 from /usr/include/c++/9.2.0/array:39,
+                 from /usr/include/c++/9.2.0/tuple:39,
+                 from /usr/include/c++/9.2.0/bits/unique_ptr.h:37,
+                 from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/basic_string.h:6141:5: nota: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6141 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/basic_string.h:6141:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/string:55,
+                 from /usr/include/c++/9.2.0/stdexcept:39,
+                 from /usr/include/c++/9.2.0/array:39,
+                 from /usr/include/c++/9.2.0/tuple:39,
+                 from /usr/include/c++/9.2.0/bits/unique_ptr.h:37,
+                 from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/basic_string.h:6149:5: nota: candidate: ‘template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::__cxx11::basic_string<_CharT>&, const std::__cxx11::basic_string<_CharT>&)’
+ 6149 |     operator==(const basic_string<_CharT>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/basic_string.h:6149:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::__cxx11::basic_string<_CharT>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/string:55,
+                 from /usr/include/c++/9.2.0/stdexcept:39,
+                 from /usr/include/c++/9.2.0/array:39,
+                 from /usr/include/c++/9.2.0/tuple:39,
+                 from /usr/include/c++/9.2.0/bits/unique_ptr.h:37,
+                 from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/basic_string.h:6163:5: nota: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 6163 |     operator==(const _CharT* __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/basic_string.h:6163:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   no coinciden los tipos ‘const _CharT*’ y ‘std::shared_ptr<GameObject>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/string:55,
+                 from /usr/include/c++/9.2.0/stdexcept:39,
+                 from /usr/include/c++/9.2.0/array:39,
+                 from /usr/include/c++/9.2.0/tuple:39,
+                 from /usr/include/c++/9.2.0/bits/unique_ptr.h:37,
+                 from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/basic_string.h:6175:5: nota: candidate: ‘template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)’
+ 6175 |     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/basic_string.h:6175:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/tuple:39,
+                 from /usr/include/c++/9.2.0/bits/unique_ptr.h:37,
+                 from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/array:252:5: nota: candidate: ‘template<class _Tp, long unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)’
+  252 |     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/array:252:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::array<_Tp, _Nm>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/unique_ptr.h:37,
+                 from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/tuple:1419:5: nota: candidate: ‘template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Tps ...>&, const std::tuple<_Elements ...>&)’
+ 1419 |     operator==(const tuple<_TElements...>& __t,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/tuple:1419:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::tuple<_Tps ...>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/unique_ptr.h:707:5: nota: candidate: ‘template<class _Tp, class _Dp, class _Up, class _Ep> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, const std::unique_ptr<_Up, _Ep>&)’
+  707 |     operator==(const unique_ptr<_Tp, _Dp>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/unique_ptr.h:707:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::unique_ptr<_Tp, _Dp>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/unique_ptr.h:713:5: nota: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(const std::unique_ptr<_Tp, _Dp>&, std::nullptr_t)’
+  713 |     operator==(const unique_ptr<_Tp, _Dp>& __x, nullptr_t) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/unique_ptr.h:713:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::unique_ptr<_Tp, _Dp>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/memory:80,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/unique_ptr.h:718:5: nota: candidate: ‘template<class _Tp, class _Dp> bool std::operator==(std::nullptr_t, const std::unique_ptr<_Tp, _Dp>&)’
+  718 |     operator==(nullptr_t, const unique_ptr<_Tp, _Dp>& __x) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/unique_ptr.h:718:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   no coinciden los tipos ‘const std::unique_ptr<_Tp, _Dp>’ y ‘bool(std::shared_ptr<GameObject>)’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/shared_ptr.h:52,
+                 from /usr/include/c++/9.2.0/memory:81,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/shared_ptr_base.h:1412:5: nota: candidate: ‘template<class _Tp1, class _Tp2, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp1, _Lp>&, const std::__shared_ptr<_Tp2, _Lp>&)’
+ 1412 |     operator==(const __shared_ptr<_Tp1, _Lp>& __a,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/shared_ptr_base.h:1412:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   no coinciden los tipos ‘const std::__shared_ptr<_Tp2, _Lp>’ y ‘bool(std::shared_ptr<GameObject>)’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/shared_ptr.h:52,
+                 from /usr/include/c++/9.2.0/memory:81,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/shared_ptr_base.h:1418:5: nota: candidate: ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(const std::__shared_ptr<_Tp, _Lp>&, std::nullptr_t)’
+ 1418 |     operator==(const __shared_ptr<_Tp, _Lp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/shared_ptr_base.h:1418:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   no se puede convertir ‘((__gnu_cxx::__ops::_Iter_equals_val<bool(std::shared_ptr<GameObject>)>*)this)->__gnu_cxx::__ops::_Iter_equals_val<bool(std::shared_ptr<GameObject>)>::_M_value’ (tipo ‘bool(std::shared_ptr<GameObject>)’) al tipo ‘std::nullptr_t’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/bits/shared_ptr.h:52,
+                 from /usr/include/c++/9.2.0/memory:81,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/shared_ptr_base.h:1423:5: nota: candidate: ‘template<class _Tp, __gnu_cxx::_Lock_policy _Lp> bool std::operator==(std::nullptr_t, const std::__shared_ptr<_Tp, _Lp>&)’
+ 1423 |     operator==(nullptr_t, const __shared_ptr<_Tp, _Lp>& __a) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/shared_ptr_base.h:1423:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   no coinciden los tipos ‘const std::__shared_ptr<_Tp, _Lp>’ y ‘bool(std::shared_ptr<GameObject>)’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/memory:81,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/shared_ptr.h:383:5: nota: candidate: ‘template<class _Tp, class _Up> bool std::operator==(const std::shared_ptr<_Tp>&, const std::shared_ptr<_Tp>&)’
+  383 |     operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/shared_ptr.h:383:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   no coinciden los tipos ‘const std::shared_ptr<_Tp>’ y ‘bool(std::shared_ptr<GameObject>)’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/memory:81,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/shared_ptr.h:388:5: nota: candidate: ‘template<class _Tp> bool std::operator==(const std::shared_ptr<_Tp>&, std::nullptr_t)’
+  388 |     operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/shared_ptr.h:388:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   no se puede convertir ‘((__gnu_cxx::__ops::_Iter_equals_val<bool(std::shared_ptr<GameObject>)>*)this)->__gnu_cxx::__ops::_Iter_equals_val<bool(std::shared_ptr<GameObject>)>::_M_value’ (tipo ‘bool(std::shared_ptr<GameObject>)’) al tipo ‘std::nullptr_t’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/memory:81,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/shared_ptr.h:393:5: nota: candidate: ‘template<class _Tp> bool std::operator==(std::nullptr_t, const std::shared_ptr<_Tp>&)’
+  393 |     operator==(nullptr_t, const shared_ptr<_Tp>& __a) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/shared_ptr.h:393:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   no coinciden los tipos ‘const std::shared_ptr<_Tp>’ y ‘bool(std::shared_ptr<GameObject>)’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/thread:276:3: nota: candidate: ‘bool std::operator==(std::thread::id, std::thread::id)’
+  276 |   operator==(thread::id __x, thread::id __y) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9.2.0/thread:276:25: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘std::thread::id’
+  276 |   operator==(thread::id __x, thread::id __y) noexcept
+      |              ~~~~~~~~~~~^~~
+In file included from /usr/include/c++/9.2.0/bits/ios_base.h:46,
+                 from /usr/include/c++/9.2.0/ios:42,
+                 from /usr/include/c++/9.2.0/ostream:38,
+                 from /usr/include/SFML/System/Err.hpp:32,
+                 from /usr/include/SFML/System.hpp:34,
+                 from /usr/include/SFML/Window.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/c++/9.2.0/system_error:292:3: nota: candidate: ‘bool std::operator==(const std::error_code&, const std::error_code&)’
+  292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9.2.0/system_error:292:32: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘const std::error_code&’
+  292 |   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+      |              ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9.2.0/system_error:297:3: nota: candidate: ‘bool std::operator==(const std::error_code&, const std::error_condition&)’
+  297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9.2.0/system_error:297:32: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘const std::error_code&’
+  297 |   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+      |              ~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9.2.0/system_error:304:3: nota: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_code&)’
+  304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+      |   ^~~~~~~~
+/usr/include/c++/9.2.0/system_error:304:37: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘const std::error_condition&’
+  304 |   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+      |              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/usr/include/c++/9.2.0/system_error:311:3: nota: candidate: ‘bool std::operator==(const std::error_condition&, const std::error_condition&)’
+  311 |   operator==(const error_condition& __lhs,
+      |   ^~~~~~~~
+/usr/include/c++/9.2.0/system_error:311:37: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘const std::error_condition&’
+  311 |   operator==(const error_condition& __lhs,
+      |              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /usr/include/c++/9.2.0/bits/locale_facets.h:48,
+                 from /usr/include/c++/9.2.0/bits/basic_ios.h:37,
+                 from /usr/include/c++/9.2.0/ios:44,
+                 from /usr/include/c++/9.2.0/ostream:38,
+                 from /usr/include/SFML/System/Err.hpp:32,
+                 from /usr/include/SFML/System.hpp:34,
+                 from /usr/include/SFML/Window.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/c++/9.2.0/bits/streambuf_iterator.h:208:5: nota: candidate: ‘template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)’
+  208 |     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/streambuf_iterator.h:208:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::istreambuf_iterator<_CharT, _Traits>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/iterator:66,
+                 from /usr/include/SFML/System/String.hpp:33,
+                 from /usr/include/SFML/System.hpp:42,
+                 from /usr/include/SFML/Window.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/c++/9.2.0/bits/stream_iterator.h:134:5: nota: candidate: ‘template<class _Tp, class _CharT, class _Traits, class _Dist> bool std::operator==(const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&, const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&)’
+  134 |     operator==(const istream_iterator<_Tp, _CharT, _Traits, _Dist>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stream_iterator.h:134:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/vector:67,
+                 from /usr/include/SFML/Window/VideoMode.hpp:32,
+                 from /usr/include/SFML/Window.hpp:43,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/c++/9.2.0/bits/stl_vector.h:1888:5: nota: candidate: ‘template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)’
+ 1888 |     operator==(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_vector.h:1888:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::vector<_Tp, _Alloc>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/map:61,
+                 from /usr/include/SFML/Graphics/Font.hpp:37,
+                 from /usr/include/SFML/Graphics.hpp:38,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/c++/9.2.0/bits/stl_map.h:1455:5: nota: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)’
+ 1455 |     operator==(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_map.h:1455:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::map<_Key, _Tp, _Compare, _Alloc>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/c++/9.2.0/map:62,
+                 from /usr/include/SFML/Graphics/Font.hpp:37,
+                 from /usr/include/SFML/Graphics.hpp:38,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/c++/9.2.0/bits/stl_multimap.h:1119:5: nota: candidate: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator==(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)’
+ 1119 |     operator==(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+      |     ^~~~~~~~
+/usr/include/c++/9.2.0/bits/stl_multimap.h:1119:5: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/SFML/System/Clock.hpp:32,
+                 from /usr/include/SFML/System.hpp:33,
+                 from /usr/include/SFML/Window.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/SFML/System/Time.hpp:161:22: nota: candidate: ‘bool sf::operator==(sf::Time, sf::Time)’
+  161 | SFML_SYSTEM_API bool operator ==(Time left, Time right);
+      |                      ^~~~~~~~
+/usr/include/SFML/System/Time.hpp:161:39: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘sf::Time’
+  161 | SFML_SYSTEM_API bool operator ==(Time left, Time right);
+      |                                  ~~~~~^~~~
+In file included from /usr/include/SFML/System.hpp:42,
+                 from /usr/include/SFML/Window.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/SFML/System/String.hpp:540:22: nota: candidate: ‘bool sf::operator==(const sf::String&, const sf::String&)’
+  540 | SFML_SYSTEM_API bool operator ==(const String& left, const String& right);
+      |                      ^~~~~~~~
+/usr/include/SFML/System/String.hpp:521:59: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘const sf::String&’
+  521 |     friend SFML_SYSTEM_API bool operator ==(const String& left, const String& right);
+      |                                             ~~~~~~~~~~~~~~^~~~
+In file included from /usr/include/SFML/System/Vector2.hpp:250,
+                 from /usr/include/SFML/System.hpp:48,
+                 from /usr/include/SFML/Window.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/SFML/System/Vector2.inl:150:13: nota: candidate: ‘template<class T> bool sf::operator==(const sf::Vector2<T>&, const sf::Vector2<T>&)’
+  150 | inline bool operator ==(const Vector2<T>& left, const Vector2<T>& right)
+      |             ^~~~~~~~
+/usr/include/SFML/System/Vector2.inl:150:13: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const sf::Vector2<T>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/SFML/System/Vector3.hpp:252,
+                 from /usr/include/SFML/System.hpp:49,
+                 from /usr/include/SFML/Window.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/SFML/System/Vector3.inl:157:13: nota: candidate: ‘template<class T> bool sf::operator==(const sf::Vector3<T>&, const sf::Vector3<T>&)’
+  157 | inline bool operator ==(const Vector3<T>& left, const Vector3<T>& right)
+      |             ^~~~~~~~
+/usr/include/SFML/System/Vector3.inl:157:13: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const sf::Vector3<T>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/SFML/Window.hpp:43,
+                 from /usr/include/SFML/Graphics.hpp:32,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/SFML/Window/VideoMode.hpp:117:22: nota: candidate: ‘bool sf::operator==(const sf::VideoMode&, const sf::VideoMode&)’
+  117 | SFML_WINDOW_API bool operator ==(const VideoMode& left, const VideoMode& right);
+      |                      ^~~~~~~~
+/usr/include/SFML/Window/VideoMode.hpp:117:51: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘const sf::VideoMode&’
+  117 | SFML_WINDOW_API bool operator ==(const VideoMode& left, const VideoMode& right);
+      |                                  ~~~~~~~~~~~~~~~~~^~~~
+In file included from /usr/include/SFML/Graphics.hpp:33,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/SFML/Graphics/BlendMode.hpp:133:24: nota: candidate: ‘bool sf::operator==(const sf::BlendMode&, const sf::BlendMode&)’
+  133 | SFML_GRAPHICS_API bool operator ==(const BlendMode& left, const BlendMode& right);
+      |                        ^~~~~~~~
+/usr/include/SFML/Graphics/BlendMode.hpp:133:53: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘const sf::BlendMode&’
+  133 | SFML_GRAPHICS_API bool operator ==(const BlendMode& left, const BlendMode& right);
+      |                                    ~~~~~~~~~~~~~~~~~^~~~
+In file included from /usr/include/SFML/Graphics/Rect.hpp:193,
+                 from /usr/include/SFML/Graphics/Transform.hpp:32,
+                 from /usr/include/SFML/Graphics/RenderStates.hpp:33,
+                 from /usr/include/SFML/Graphics/Drawable.hpp:32,
+                 from /usr/include/SFML/Graphics/Shape.hpp:32,
+                 from /usr/include/SFML/Graphics/CircleShape.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:34,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/SFML/Graphics/Rect.inl:147:13: nota: candidate: ‘template<class T> bool sf::operator==(const sf::Rect<T>&, const sf::Rect<T>&)’
+  147 | inline bool operator ==(const Rect<T>& left, const Rect<T>& right)
+      |             ^~~~~~~~
+/usr/include/SFML/Graphics/Rect.inl:147:13: nota:   falló la deducción/sustitución del argumento de plantilla:
+In file included from /usr/include/c++/9.2.0/bits/stl_algobase.h:71,
+                 from /usr/include/c++/9.2.0/memory:62,
+                 from /usr/include/c++/9.2.0/thread:39,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:1:
+/usr/include/c++/9.2.0/bits/predefined_ops.h:241:17: nota:   ‘std::shared_ptr<GameObject>’ no es derivado de ‘const sf::Rect<T>’
+  241 |  { return *__it == _M_value; }
+      |           ~~~~~~^~~~~~~~~~~
+In file included from /usr/include/SFML/Graphics/RenderStates.hpp:33,
+                 from /usr/include/SFML/Graphics/Drawable.hpp:32,
+                 from /usr/include/SFML/Graphics/Shape.hpp:32,
+                 from /usr/include/SFML/Graphics/CircleShape.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:34,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/SFML/Graphics/Transform.hpp:419:24: nota: candidate: ‘bool sf::operator==(const sf::Transform&, const sf::Transform&)’
+  419 | SFML_GRAPHICS_API bool operator ==(const Transform& left, const Transform& right);
+      |                        ^~~~~~~~
+/usr/include/SFML/Graphics/Transform.hpp:419:53: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘const sf::Transform&’
+  419 | SFML_GRAPHICS_API bool operator ==(const Transform& left, const Transform& right);
+      |                                    ~~~~~~~~~~~~~~~~~^~~~
+In file included from /usr/include/SFML/Graphics/Vertex.hpp:32,
+                 from /usr/include/SFML/Graphics/VertexArray.hpp:32,
+                 from /usr/include/SFML/Graphics/Shape.hpp:34,
+                 from /usr/include/SFML/Graphics/CircleShape.hpp:32,
+                 from /usr/include/SFML/Graphics.hpp:34,
+                 from /home/otreblan/Utec/obj/SpaceClones/src/scene.cpp:4:
+/usr/include/SFML/Graphics/Color.hpp:114:24: nota: candidate: ‘bool sf::operator==(const sf::Color&, const sf::Color&)’
+  114 | SFML_GRAPHICS_API bool operator ==(const Color& left, const Color& right);
+      |                        ^~~~~~~~
+/usr/include/SFML/Graphics/Color.hpp:114:49: nota:   no hay una conversión conocida para el argumento 1 de ‘std::shared_ptr<GameObject>’ a ‘const sf::Color&’
+  114 | SFML_GRAPHICS_API bool operator ==(const Color& left, const Color& right);
+      |                                    ~~~~~~~~~~~~~^~~~
+make[2]: *** [CMakeFiles/clone.dir/build.make:76: CMakeFiles/clone.dir/src/scene.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:76: CMakeFiles/clone.dir/all] Error 2
+make: *** [Makefile:130: all] Error 2

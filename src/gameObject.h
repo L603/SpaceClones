@@ -17,6 +17,10 @@ protected:
 	GameObject(Scene& _myScene);
 	std::weak_ptr<GameObject> addToList();
 public:
+	bool isDeletable;
+
+	void despawn();
+
 	virtual void update()=0;
 	virtual ~GameObject();
 };

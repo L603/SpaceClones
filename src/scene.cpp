@@ -1,4 +1,5 @@
 #include <thread>
+#include <iostream>
 #include <chrono>
 #include <memory>
 #include <SFML/Graphics.hpp>
@@ -25,10 +26,6 @@ sf::RenderWindow& Scene::getWindow()
 
 void Scene::render()
 {
-	//for(auto i = renderObjects.begin(); i != renderObjects.end(); i++)
-	//{
-		//window.draw(*i->lock());
-	//}
 	for(size_t i = 0; i < renderObjects.size(); i++)
 	{
 		window.draw(*renderObjects[i].lock());
@@ -37,14 +34,27 @@ void Scene::render()
 
 void Scene::update()
 {
-	//for(auto i = objects.begin(); i != objects.end(); i++)
-	//{
-		//(*i)->update();
-	//}
 	for(size_t i = 0; i < objects.size(); i++)
 	{
 		objects[i]->update();
 	}
+}
+
+void Scene::postUpdate()
+{
+	auto newEnd = std::remove_if(objects.begin(), objects.end(),
+		[](std::shared_ptr<GameObject> i)
+		{
+			return i->isDeletable;
+		});
+	objects.erase(newEnd, objects.end());
+
+	auto newRenderEnd = std::remove_if(renderObjects.begin(), renderObjects.end(),
+		[](std::weak_ptr<sf::Drawable> i)
+		{
+			return i.expired();
+		});
+	renderObjects.erase(newRenderEnd, renderObjects.end());
 }
 
 void Scene::start()
@@ -74,6 +84,8 @@ void Scene::start()
 		render();
 
 		window.display();
+
+		postUpdate();
 		std::this_thread::sleep_for(std::chrono::milliseconds(20));
 	}
 }
