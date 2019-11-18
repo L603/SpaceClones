@@ -34,6 +34,7 @@ void Bala::update()
 
 void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
+	// Renderiza un círculo
 	sf::CircleShape cir(10);
 
 	sf::Vector2f pos = getPosition();

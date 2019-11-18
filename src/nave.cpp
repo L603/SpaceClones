@@ -9,6 +9,7 @@ Nave::~Nave(){};
 
 void Nave::update()
 {
+	// Moviemiento derecha/izquierda
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		move(3,0);
@@ -19,6 +20,7 @@ void Nave::update()
 		move(-3,0);
 	}
 
+	// Spawneando balas
 	sf::Vector2f vel = sf::Vector2f(0,-5);
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
@@ -28,17 +30,18 @@ void Nave::update()
 
 void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
-		sf::CircleShape cir(50);
+	// Renderizando un círculo
+	sf::CircleShape cir(50);
 
-		sf::Vector2f pos = getPosition();
+	sf::Vector2f pos = getPosition();
 
-		cir.setOrigin(cir.getRadius(), cir.getRadius());
+	cir.setOrigin(cir.getRadius(), cir.getRadius());
 
-		cir.setPosition(pos);
+	cir.setPosition(pos);
 
-		cir.setFillColor(sf::Color(255, 255, 255));
+	cir.setFillColor(sf::Color(255, 255, 255));
 
-		target.draw(cir);
+	target.draw(cir);
 }
 
 std::weak_ptr<Nave> Nave::spawn(Scene& _myScene)
@@ -55,6 +58,7 @@ std::weak_ptr<Nave> Nave::spawn(Scene& _myScene)
 
 std::weak_ptr<Nave> Nave::spawn(Scene& _myScene, sf::Vector2f position)
 {
+	// Spawneando una nueva nave
 	auto newPointer = Nave::spawn(_myScene);
 	newPointer.lock()->setPosition(position);
 

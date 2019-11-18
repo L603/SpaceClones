@@ -26,6 +26,7 @@ sf::RenderWindow& Scene::getWindow()
 
 void Scene::render()
 {
+	// Renderiza lo renderizable
 	for(size_t i = 0; i < renderObjects.size(); i++)
 	{
 		window.draw(*renderObjects[i].lock());
@@ -34,6 +35,7 @@ void Scene::render()
 
 void Scene::update()
 {
+	// Actualiza todos los objetos
 	for(size_t i = 0; i < objects.size(); i++)
 	{
 		objects[i]->update();
@@ -42,6 +44,7 @@ void Scene::update()
 
 void Scene::postUpdate()
 {
+	// Esto elimina los objetos que están marcados para eliminar
 	auto newEnd = std::remove_if(objects.begin(), objects.end(),
 		[](std::shared_ptr<GameObject> i)
 		{
@@ -49,6 +52,7 @@ void Scene::postUpdate()
 		});
 	objects.erase(newEnd, objects.end());
 
+	// Esto elimina los punteros expirados
 	auto newRenderEnd = std::remove_if(renderObjects.begin(), renderObjects.end(),
 		[](std::weak_ptr<sf::Drawable> i)
 		{
@@ -85,6 +89,7 @@ void Scene::start()
 
 		window.display();
 
+		// Eliminando lo eliminable
 		postUpdate();
 		std::this_thread::sleep_for(std::chrono::milliseconds(20));
 	}
