@@ -18,7 +18,6 @@ protected:
 public:
 
 	virtual ~GameObject();
-	//virtual std::weak_ptr<GameObject> spawn()=0;
 };
 
 #endif /* GAMEOBJECT_H */

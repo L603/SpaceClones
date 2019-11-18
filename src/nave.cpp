@@ -8,8 +8,9 @@ void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
 		sf::CircleShape cir(100);
 
-		sf::Vector2f pos = (sf::Vector2f)target.getSize()*0.5f;
-		pos -= sf::Vector2f(cir.getRadius(),cir.getRadius());
+		sf::Vector2f pos = getPosition();
+
+		cir.setOrigin(cir.getRadius(), cir.getRadius());
 
 		cir.setPosition(pos);
 
@@ -28,4 +29,12 @@ std::weak_ptr<Nave> Nave::spawn(Scene& _myScene)
 
 	// Convierto el smart pointer de la clase base a Nave
 	return std::dynamic_pointer_cast<Nave>(smartPtr.lock());
+}
+
+std::weak_ptr<Nave> Nave::spawn(Scene& _myScene, sf::Vector2f position)
+{
+	auto newPointer = Nave::spawn(_myScene);
+	newPointer.lock()->setPosition(position);
+
+	return newPointer;
 }

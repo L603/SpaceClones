@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 
-class Nave: public sf::Drawable, public GameObject
+class Nave: public GameObject, public sf::Drawable
 {
 private:
 
@@ -17,6 +17,7 @@ public:
 
 	virtual ~Nave();
 	static std::weak_ptr<Nave> spawn(Scene& _myScene);
+	static std::weak_ptr<Nave> spawn(Scene& _myScene, sf::Vector2f position);
 };
 
 #endif /* NAVE_H */

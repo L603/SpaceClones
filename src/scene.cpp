@@ -1,4 +1,7 @@
+#include <thread>
+#include <chrono>
 #include <SFML/Graphics.hpp>
+
 #include "scene.h"
 #include "nave.h"
 
@@ -29,7 +32,8 @@ void Scene::render()
 
 void Scene::start()
 {
-	auto nave = Nave::spawn(*this);
+	auto nave2 = Nave::spawn(*this, (sf::Vector2f)window.getSize()*0.5f);
+
 	while(window.isOpen())
 	{
 		sf::Event event;
@@ -47,10 +51,13 @@ void Scene::start()
 
 		window.clear();
 
+		nave2.lock()->move(1, 0);
+
 		// Aquí es donde se renderiza todo
 		render();
 
 		window.display();
+		std::this_thread::sleep_for(std::chrono::milliseconds(20));
 	}
 }
 

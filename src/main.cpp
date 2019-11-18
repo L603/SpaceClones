@@ -1,6 +1,4 @@
 #include <iostream>
-#include <thread>
-#include <chrono>
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 
