@@ -4,6 +4,19 @@ Nave::Nave(Scene& _myScene):GameObject(_myScene){};
 
 Nave::~Nave(){};
 
+void Nave::update()
+{
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		move(1,0);
+	}
+
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		move(-1,0);
+	}
+}
+
 void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
 		sf::CircleShape cir(100);

@@ -13,9 +13,12 @@ private:
 public:
 	Nave(Scene& _myScene);
 
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
 
 	virtual ~Nave();
+
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
+	virtual void update();
+
 	static std::weak_ptr<Nave> spawn(Scene& _myScene);
 	static std::weak_ptr<Nave> spawn(Scene& _myScene, sf::Vector2f position);
 };

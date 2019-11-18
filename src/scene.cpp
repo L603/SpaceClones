@@ -30,6 +30,14 @@ void Scene::render()
 	}
 }
 
+void Scene::update()
+{
+	for(const auto i:objects)
+	{
+		i->update();
+	}
+}
+
 void Scene::start()
 {
 	auto nave2 = Nave::spawn(*this, (sf::Vector2f)window.getSize()*0.5f);
@@ -51,7 +59,7 @@ void Scene::start()
 
 		window.clear();
 
-		nave2.lock()->move(1, 0);
+		update();
 
 		// Aquí es donde se renderiza todo
 		render();

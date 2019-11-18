@@ -20,6 +20,7 @@ private:
 	std::vector<std::weak_ptr<sf::Drawable>> renderObjects;
 
 	void render();
+	void update();
 
 public:
 	Scene();
