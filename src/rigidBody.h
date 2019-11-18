@@ -19,9 +19,14 @@ protected:
 	pixel radius;
 	faction myFaction;
 
+	/// Esta función es llamada si dos rigidBodies chocan
+	virtual void onCollision(std::weak_ptr<RigidBody> target)=0;
+
 public:
 	RigidBody(pixel _radius, faction _myFaction);
 	virtual ~RigidBody();
+
+	faction getFaction();
 };
 
 #endif /* RIGIDOBJECT_H */

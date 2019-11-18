@@ -2,7 +2,6 @@
 #define BALAS_H
 
 #include <SFML/Graphics.hpp>
-//#include <Box2D/Box2D.h>
 
 #include "types.h"
 #include "gameObject.h"
@@ -45,6 +44,8 @@ public:
 		hp _damage,
 		pixel _radius,
 		RigidBody::faction _faction);
+
+	virtual void onCollision(std::weak_ptr<RigidBody> target);
 };
 
 #endif /* BALAS_H */

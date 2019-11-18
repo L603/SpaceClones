@@ -5,3 +5,8 @@ RigidBody::RigidBody(pixel _radius, faction _myFaction):
 	myFaction(_myFaction){};
 
 RigidBody::~RigidBody(){};
+
+RigidBody::faction RigidBody::getFaction()
+{
+	return myFaction;
+}

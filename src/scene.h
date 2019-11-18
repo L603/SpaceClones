@@ -19,7 +19,13 @@ private:
 
 	std::vector<std::shared_ptr<GameObject>> objects;
 	std::vector<std::weak_ptr<sf::Drawable>> renderObjects;
+	std::unordered_map<RigidBody::faction,
+		std::vector<std::weak_ptr<RigidBody>>> rigidBodies;
 
+	std::unordered_map<RigidBody::faction,
+		std::unordered_map<RigidBody::faction, bool>> collisionMatrix;
+
+	void physicsUpdate();
 	void update();
 	void render();
 	void postUpdate();

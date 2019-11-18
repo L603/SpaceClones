@@ -1,5 +1,4 @@
 #include <SFML/Graphics.hpp>
-//#include <Box2D/Box2D.h>
 #include <iostream>
 #include <memory>
 
@@ -51,14 +50,6 @@ void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const
 	target.draw(cir);
 }
 
-void Bala::hit(GameObject *target)
-{
-	// TODO
-	// Hay que detectar si el objeto colisionado es un alien
-	// obtener su puntero y destruirlo.
-	// Y al final destruir la bala y eliminarlo de la lista de GameObjects
-}
-
 std::weak_ptr<Bala> Bala::spawn(Scene& _myScene,
 	sf::Vector2f _velocity,
 	hp _damage,
@@ -88,4 +79,12 @@ std::weak_ptr<Bala> Bala::spawn(
 	newPointer.lock()->RigidBody::setPosition(position);
 
 	return newPointer;
+}
+
+void Bala::onCollision(std::weak_ptr<RigidBody> target)
+{
+	// TODO
+	// Hay que detectar si el objeto colisionado es un alien
+	// obtener su puntero y destruirlo.
+	// Y al final destruir la bala y eliminarlo de la lista de GameObjects
 }

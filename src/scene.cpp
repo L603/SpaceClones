@@ -31,6 +31,12 @@ void Scene::render()
 	{
 		window.draw(*renderObjects[i].lock());
 	}
+	window.display();
+}
+void Scene::physicsUpdate()
+{
+	// TODO
+	// Hay que verificar las colisiones
 }
 
 void Scene::update()
@@ -81,18 +87,14 @@ void Scene::start()
 			}
 		}
 
-		window.clear();
-
+		// Actualizaciones y esas cosas
+		physicsUpdate();
 		update();
-
-		// Aquí es donde se renderiza todo
 		render();
-
-		window.display();
-
-		// Eliminando lo eliminable
 		postUpdate();
+
 		std::this_thread::sleep_for(std::chrono::milliseconds(20));
+		window.clear();
 	}
 }
 
@@ -108,6 +110,13 @@ std::weak_ptr<GameObject> Scene::addObject(GameObject* newObject)
 	if(newRenderable)
 	{
 		renderObjects.push_back(newRenderable);
+	}
+
+	// Añadiendo a la lista de listas de objetos colisionables
+	auto newRigid = std::dynamic_pointer_cast<RigidBody>(newPointer);
+	if(newRigid)
+	{
+		rigidBodies[newRigid->getFaction()].push_back(newRigid);
 	}
 
 	return newPointer;
