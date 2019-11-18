@@ -15,6 +15,7 @@ set(SOURCES
 	${SRC_DIR}/bala.cpp
 	${SRC_DIR}/nave.cpp
 	${SRC_DIR}/rigidBody.cpp
+	${SRC_DIR}/damageable.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

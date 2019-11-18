@@ -9,10 +9,10 @@ protected:
 	hp life;
 
 public:
-	Damageable();
+	Damageable(hp _life);
 	virtual ~Damageable();
 
-	void damage(hp _damage);
+	virtual void damage(hp _damage);
 };
 
 #endif /* DAMAGEABLE_H */
