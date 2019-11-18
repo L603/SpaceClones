@@ -50,22 +50,6 @@ void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const
 	target.draw(cir);
 }
 
-std::weak_ptr<Bala> Bala::spawn(Scene& _myScene,
-	sf::Vector2f _velocity,
-	hp _damage,
-	pixel radius,
-	RigidBody::faction _faction)
-{
-	// Creo una nueva bala
-	Bala *newBala = new Bala(_myScene, _velocity, _damage, radius, _faction);
-
-	// Añado la bala a la lista de objetos de la escena
-	auto smartPtr = newBala->addToList();
-
-	// Convierto el smart pointer de la clase base a Bala
-	return std::dynamic_pointer_cast<Bala>(smartPtr.lock());
-}
-
 std::weak_ptr<Bala> Bala::spawn(
 	Scene& _myScene,
 	sf::Vector2f position,
@@ -74,9 +58,18 @@ std::weak_ptr<Bala> Bala::spawn(
 	pixel radius,
 	RigidBody::faction _faction)
 {
-	auto newPointer = Bala::spawn(_myScene, _velocity, _damage, radius, _faction);
-	newPointer.lock()->GameObject::setPosition(position);
-	newPointer.lock()->RigidBody::setPosition(position);
+
+	// Creo una nueva bala
+	Bala *newBala = new Bala(_myScene, _velocity, _damage, radius, _faction);
+
+	// Añado la bala a la lista de objetos de la escena
+	auto smartPtr = newBala->addToList();
+
+	// Convierto el smart pointer de la clase base a Bala
+	auto newPointer = std::dynamic_pointer_cast<Bala>(smartPtr.lock());
+
+	newPointer->GameObject::setPosition(position);
+	newPointer->RigidBody::setPosition(position);
 
 	return newPointer;
 }

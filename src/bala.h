@@ -31,12 +31,6 @@ public:
 	virtual void update();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
 
-	static std::weak_ptr<Bala> spawn(Scene& _myScene,
-		sf::Vector2f _velocity,
-		hp _damage,
-		pixel _radius,
-		RigidBody::faction _faction);
-
 	static std::weak_ptr<Bala> spawn(
 		Scene& _myScene,
 		sf::Vector2f position,

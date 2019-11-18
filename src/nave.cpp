@@ -44,8 +44,9 @@ void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const
 	target.draw(cir);
 }
 
-std::weak_ptr<Nave> Nave::spawn(Scene& _myScene)
+std::weak_ptr<Nave> Nave::spawn(Scene& _myScene, sf::Vector2f position)
 {
+
 	// Creo una nueva nave
 	Nave *newNave = new Nave(_myScene);
 
@@ -53,14 +54,9 @@ std::weak_ptr<Nave> Nave::spawn(Scene& _myScene)
 	auto smartPtr = newNave->addToList();
 
 	// Convierto el smart pointer de la clase base a Nave
-	return std::dynamic_pointer_cast<Nave>(smartPtr.lock());
-}
+	auto newPointer = std::dynamic_pointer_cast<Nave>(smartPtr.lock());
 
-std::weak_ptr<Nave> Nave::spawn(Scene& _myScene, sf::Vector2f position)
-{
-	// Spawneando una nueva nave
-	auto newPointer = Nave::spawn(_myScene);
-	newPointer.lock()->setPosition(position);
+	newPointer->setPosition(position);
 
 	return newPointer;
 }
