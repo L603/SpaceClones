@@ -24,17 +24,25 @@ sf::RenderWindow& Scene::getWindow()
 
 void Scene::render()
 {
-	for(const auto i:renderObjects)
+	//for(auto i = renderObjects.begin(); i != renderObjects.end(); i++)
+	//{
+		//window.draw(*i->lock());
+	//}
+	for(size_t i = 0; i < renderObjects.size(); i++)
 	{
-		window.draw(*i.lock());
+		window.draw(*renderObjects[i].lock());
 	}
 }
 
 void Scene::update()
 {
-	for(const auto i:objects)
+	//for(auto i = objects.begin(); i != objects.end(); i++)
+	//{
+		//(*i)->update();
+	//}
+	for(size_t i = 0; i < objects.size(); i++)
 	{
-		i->update();
+		objects[i]->update();
 	}
 }
 

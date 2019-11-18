@@ -1,4 +1,5 @@
 #include "nave.h"
+#include "bala.h"
 
 Nave::Nave(Scene& _myScene):GameObject(_myScene){};
 
@@ -8,18 +9,24 @@ void Nave::update()
 {
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		move(1,0);
+		move(3,0);
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		move(-1,0);
+		move(-3,0);
+	}
+
+	sf::Vector2f vel = sf::Vector2f(0,-5);
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		auto i = Bala::spawn(*myScene, getPosition(), vel, 1);
 	}
 }
 
 void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
-		sf::CircleShape cir(100);
+		sf::CircleShape cir(50);
 
 		sf::Vector2f pos = getPosition();
 
