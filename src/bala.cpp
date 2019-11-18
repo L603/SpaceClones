@@ -7,19 +7,19 @@
 #include "damageable.h"
 #include "gameObject.h"
 #include "scene.h"
-#include "rigidObject.h"
+#include "rigidBody.h"
 
 
 Bala::Bala(Scene& _myScene,
 	sf::Vector2f _velocity,
 	hp _damage,
 	pixel _radius,
-	RigidObject::faction _faction):
+	RigidBody::faction _faction):
 		GameObject(_myScene),
 		velocity(_velocity),
 		damage(_damage),
 		radius(_radius),
-		RigidObject(_radius, _faction){};
+		RigidBody(_radius, _faction){};
 
 
 Bala::~Bala(){};
@@ -27,7 +27,7 @@ Bala::~Bala(){};
 
 void Bala::update()
 {
-	RigidObject::setPosition(GameObject::getPosition());
+	RigidBody::setPosition(GameObject::getPosition());
 	if(GameObject::getPosition().y < 0)
 	{
 		despawn();
@@ -38,7 +38,7 @@ void Bala::update()
 void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
 	// Renderiza un círculo
-	sf::CircleShape cir(10);
+	sf::CircleShape cir(radius);
 
 	sf::Vector2f pos = GameObject::getPosition();
 
@@ -63,7 +63,7 @@ std::weak_ptr<Bala> Bala::spawn(Scene& _myScene,
 	sf::Vector2f _velocity,
 	hp _damage,
 	pixel radius,
-	RigidObject::faction _faction)
+	RigidBody::faction _faction)
 {
 	// Creo una nueva bala
 	Bala *newBala = new Bala(_myScene, _velocity, _damage, radius, _faction);
@@ -81,11 +81,11 @@ std::weak_ptr<Bala> Bala::spawn(
 	sf::Vector2f _velocity,
 	hp _damage,
 	pixel radius,
-	RigidObject::faction _faction)
+	RigidBody::faction _faction)
 {
 	auto newPointer = Bala::spawn(_myScene, _velocity, _damage, radius, _faction);
 	newPointer.lock()->GameObject::setPosition(position);
-	newPointer.lock()->RigidObject::setPosition(position);
+	newPointer.lock()->RigidBody::setPosition(position);
 
 	return newPointer;
 }

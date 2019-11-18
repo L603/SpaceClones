@@ -6,11 +6,11 @@
 
 #include "types.h"
 #include "gameObject.h"
-#include "rigidObject.h"
+#include "rigidBody.h"
 
 class Scene;
 
-class Bala: public GameObject, public sf::Drawable, public RigidObject
+class Bala: public GameObject, public sf::Drawable, public RigidBody
 {
 private:
 	hp damage;
@@ -23,7 +23,7 @@ public:
 		sf::Vector2f _velocity,
 		hp _damage,
 		pixel _radius,
-		RigidObject::faction _faction);
+		RigidBody::faction _faction);
 	virtual ~Bala();
 
 	void hit(GameObject* target);
@@ -36,7 +36,7 @@ public:
 		sf::Vector2f _velocity,
 		hp _damage,
 		pixel _radius,
-		RigidObject::faction _faction);
+		RigidBody::faction _faction);
 
 	static std::weak_ptr<Bala> spawn(
 		Scene& _myScene,
@@ -44,7 +44,7 @@ public:
 		sf::Vector2f _velocity,
 		hp _damage,
 		pixel _radius,
-		RigidObject::faction _faction);
+		RigidBody::faction _faction);
 };
 
 #endif /* BALAS_H */

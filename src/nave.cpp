@@ -24,7 +24,7 @@ void Nave::update()
 	sf::Vector2f vel = sf::Vector2f(0,-20);
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		auto i = Bala::spawn(*myScene, getPosition(), vel, 1,10, RigidObject::nave);
+		auto i = Bala::spawn(*myScene, getPosition(), vel, 1,5, RigidBody::nave);
 	}
 }
 

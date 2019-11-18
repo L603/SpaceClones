@@ -6,7 +6,7 @@
 #include "gameObject.h"
 #include "types.h"
 
-class RigidObject: public sf::Transformable
+class RigidBody: public sf::Transformable
 {
 public:
 	enum faction
@@ -20,8 +20,8 @@ protected:
 	faction myFaction;
 
 public:
-	RigidObject(pixel _radius, faction _myFaction);
-	virtual ~RigidObject();
+	RigidBody(pixel _radius, faction _myFaction);
+	virtual ~RigidBody();
 };
 
 #endif /* RIGIDOBJECT_H */
