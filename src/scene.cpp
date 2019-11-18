@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "scene.h"
+#include "nave.h"
 
 Scene::Scene():
 	gravity(0.f,0.f),
@@ -20,6 +21,7 @@ sf::RenderWindow& Scene::getWindow()
 
 void Scene::start()
 {
+	auto nave = Nave::spawn(*this);
 	while(window.isOpen())
 	{
 		sf::Event event;
@@ -37,23 +39,21 @@ void Scene::start()
 
 		window.clear();
 
-		sf::CircleShape cir(100);
-
-		sf::Vector2f pos = (sf::Vector2f)window.getSize()*0.5f;
-		pos -= sf::Vector2f(cir.getRadius(),cir.getRadius());
-
-		cir.setPosition(pos);
-
-		cir.setFillColor(sf::Color(255, 255, 255));
-
-		window.draw(cir);
+		window.draw(*nave.lock());
 
 		window.display();
 	}
 }
+
+/// Esta función añade los GameObject's a la lista interna de la escena.
 std::weak_ptr<GameObject> Scene::addObject(GameObject* newObject)
 {
+	// El puntero libre es encapsulado
 	auto newPointer = std::shared_ptr<GameObject>(newObject);
 	objects.push_back(newPointer);
+
+	// TODO
+	// Falta poner una lista con objetos rederizables
+
 	return newPointer;
 }
