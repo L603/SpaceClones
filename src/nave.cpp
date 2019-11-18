@@ -21,7 +21,7 @@ void Nave::update()
 	}
 
 	// Spawneando balas
-	sf::Vector2f vel = sf::Vector2f(0,-5);
+	sf::Vector2f vel = sf::Vector2f(0,-20);
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
 		auto i = Bala::spawn(*myScene, getPosition(), vel, 1);

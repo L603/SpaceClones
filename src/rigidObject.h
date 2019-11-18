@@ -1,12 +1,26 @@
 #ifndef RIGIDOBJECT_H
 #define RIGIDOBJECT_H
 
-class RigidObject
+#include <SFML/Graphics.hpp>
+
+#include "gameObject.h"
+#include "types.h"
+
+class RigidObject: public sf::Transformable
 {
-private:
+public:
+	enum faction
+	{
+		alien,
+		nave
+	};
+
+protected:
+	pixel radius;
+	faction myFaction;
 
 public:
-	RigidObject();
+	RigidObject(pixel _radius, faction _myFaction);
 	virtual ~RigidObject();
 };
 

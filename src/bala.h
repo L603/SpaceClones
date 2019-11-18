@@ -6,10 +6,11 @@
 
 #include "types.h"
 #include "gameObject.h"
+#include "rigidObject.h"
 
 class Scene;
 
-class Bala: public GameObject, public sf::Drawable
+class Bala: public GameObject, public sf::Drawable, public RigidObject
 {
 private:
 	hp damage;

@@ -3,7 +3,11 @@
 
 #include <SFML/Graphics.hpp>
 
+
 // Vida
 using hp = int;
+
+// Pixeles
+using pixel = int;
 
 #endif /* TYPES_H */
