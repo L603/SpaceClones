@@ -16,7 +16,7 @@ private:
 	b2World world;
 	sf::RenderWindow window;
 
-	std::vector<std::unique_ptr<GameObject>> objects;
+	std::vector<std::shared_ptr<GameObject>> objects;
 
 	void render();
 
@@ -25,6 +25,7 @@ public:
 	virtual ~Scene();
 
 	sf::RenderWindow& getWindow();
+	std::weak_ptr<GameObject> addObject(GameObject* newObject);
 
 	void start();
 };

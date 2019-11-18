@@ -7,7 +7,7 @@
 #include "scene.h"
 
 
-Bala::Bala(Scene *_myScene, hp _damage):
+Bala::Bala(Scene& _myScene, hp _damage):
 	GameObject(_myScene),
 	damage(_damage)
 {

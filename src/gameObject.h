@@ -10,12 +10,15 @@ class Scene;
 
 class GameObject : public sf::Transformable
 {
-private:
+protected:
 	Scene* myScene;
 
+	GameObject(Scene& _myScene);
+	std::weak_ptr<GameObject> addToList();
 public:
-	GameObject(Scene* _myScene);
+
 	virtual ~GameObject();
+	//virtual std::weak_ptr<GameObject> spawn()=0;
 };
 
 #endif /* GAMEOBJECT_H */

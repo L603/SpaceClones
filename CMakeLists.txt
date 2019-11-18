@@ -13,6 +13,7 @@ set(SOURCES
 	${SRC_DIR}/scene.cpp
 	${SRC_DIR}/gameObject.cpp
 	${SRC_DIR}/bala.cpp
+	${SRC_DIR}/nave.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

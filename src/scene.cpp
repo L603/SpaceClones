@@ -51,3 +51,9 @@ void Scene::start()
 		window.display();
 	}
 }
+std::weak_ptr<GameObject> Scene::addObject(GameObject* newObject)
+{
+	auto newPointer = std::shared_ptr<GameObject>(newObject);
+	objects.push_back(newPointer);
+	return newPointer;
+}

@@ -15,7 +15,7 @@ private:
 	hp damage;
 
 public:
-	Bala(Scene *_myScene, hp _damage);
+	Bala(Scene& _myScene, hp _damage);
 	virtual ~Bala();
 
 	void hit(GameObject* target);
