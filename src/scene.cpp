@@ -63,7 +63,6 @@ void Scene::postUpdate()
 
 void Scene::start()
 {
-    //a
 	auto posNave = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.8f);
 	auto nave2 = Nave::spawn(*this, posNave);
 

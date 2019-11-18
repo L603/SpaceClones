@@ -10,11 +10,16 @@
 #include "rigidObject.h"
 
 
-Bala::Bala(Scene& _myScene, sf::Vector2f _velocity, hp _damage):
-	GameObject(_myScene),
-	velocity(_velocity),
-	damage(_damage),
-	RigidObject(10, RigidObject::faction::alien){};
+Bala::Bala(Scene& _myScene,
+	sf::Vector2f _velocity,
+	hp _damage,
+	pixel _radius,
+	RigidObject::faction _faction):
+		GameObject(_myScene),
+		velocity(_velocity),
+		damage(_damage),
+		radius(_radius),
+		RigidObject(_radius, _faction){};
 
 
 Bala::~Bala(){};
@@ -54,10 +59,14 @@ void Bala::hit(GameObject *target)
 	// Y al final destruir la bala y eliminarlo de la lista de GameObjects
 }
 
-std::weak_ptr<Bala> Bala::spawn(Scene& _myScene, sf::Vector2f _velocity, hp _damage)
+std::weak_ptr<Bala> Bala::spawn(Scene& _myScene,
+	sf::Vector2f _velocity,
+	hp _damage,
+	pixel radius,
+	RigidObject::faction _faction)
 {
 	// Creo una nueva bala
-	Bala *newBala = new Bala(_myScene, _velocity, _damage);
+	Bala *newBala = new Bala(_myScene, _velocity, _damage, radius, _faction);
 
 	// Añado la bala a la lista de objetos de la escena
 	auto smartPtr = newBala->addToList();
@@ -70,9 +79,11 @@ std::weak_ptr<Bala> Bala::spawn(
 	Scene& _myScene,
 	sf::Vector2f position,
 	sf::Vector2f _velocity,
-	hp _damage)
+	hp _damage,
+	pixel radius,
+	RigidObject::faction _faction)
 {
-	auto newPointer = Bala::spawn(_myScene, _velocity, _damage);
+	auto newPointer = Bala::spawn(_myScene, _velocity, _damage, radius, _faction);
 	newPointer.lock()->GameObject::setPosition(position);
 	newPointer.lock()->RigidObject::setPosition(position);
 

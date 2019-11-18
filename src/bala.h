@@ -14,11 +14,16 @@ class Bala: public GameObject, public sf::Drawable, public RigidObject
 {
 private:
 	hp damage;
+	pixel radius;
 
 	sf::Vector2f velocity;
 
 public:
-	Bala(Scene& _myScene, sf::Vector2f _velocity, hp _damage);
+	Bala(Scene& _myScene,
+		sf::Vector2f _velocity,
+		hp _damage,
+		pixel _radius,
+		RigidObject::faction _faction);
 	virtual ~Bala();
 
 	void hit(GameObject* target);
@@ -27,12 +32,19 @@ public:
 	virtual void update();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
 
-	static std::weak_ptr<Bala> spawn(Scene& _myScene, sf::Vector2f _velocity, hp _damage);
+	static std::weak_ptr<Bala> spawn(Scene& _myScene,
+		sf::Vector2f _velocity,
+		hp _damage,
+		pixel _radius,
+		RigidObject::faction _faction);
+
 	static std::weak_ptr<Bala> spawn(
 		Scene& _myScene,
 		sf::Vector2f position,
 		sf::Vector2f _velocity,
-		hp _damage);
+		hp _damage,
+		pixel _radius,
+		RigidObject::faction _faction);
 };
 
 #endif /* BALAS_H */
