@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include <Box2D/Box2D.h>
+//#include <Box2D/Box2D.h>
 #include <iostream>
+#include <memory>
 
 #include "bala.h"
 #include "damageable.h"

@@ -27,7 +27,7 @@ target_link_libraries(${PROJECT_NAME}
 	sfml-system
 	sfml-window
 	sfml-graphics
-	Box2D
+	#Box2D
 )
 
 # Install target

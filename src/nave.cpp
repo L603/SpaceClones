@@ -1,3 +1,5 @@
+#include <memory>
+
 #include "nave.h"
 #include "bala.h"
 

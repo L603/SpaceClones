@@ -1,13 +1,14 @@
 #include <thread>
 #include <chrono>
+#include <memory>
 #include <SFML/Graphics.hpp>
 
 #include "scene.h"
 #include "nave.h"
 
 Scene::Scene():
-	gravity(0.f,0.f),
-	world(gravity),
+	//gravity(0.f,0.f),
+	//world(gravity),
 	window(
 		sf::VideoMode::getFullscreenModes()[0],
 		"Clones",
