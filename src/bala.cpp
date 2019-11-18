@@ -12,20 +12,16 @@
 Bala::Bala(Scene& _myScene, sf::Vector2f _velocity, hp _damage):
 	GameObject(_myScene),
 	velocity(_velocity),
-	damage(_damage),
-	vida(60){};
+	damage(_damage){};
 
 
 Bala::~Bala(){};
 
-hp Bala::getVida()
-{
-	return vida;
-}
 
 void Bala::update()
 {
-	if(vida-- <= 0)
+	// Despawneando si alcanza el borde
+	if(getPosition().y < 0)
 	{
 		despawn();
 	}

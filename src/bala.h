@@ -13,8 +13,6 @@ class Bala: public GameObject, public sf::Drawable
 {
 private:
 	hp damage;
-	// Los ticks antes de ser destruido
-	hp vida;
 
 	sf::Vector2f velocity;
 
