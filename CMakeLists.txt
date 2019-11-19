@@ -18,6 +18,10 @@ set(SOURCES
 	${SRC_DIR}/damageable.cpp
 )
 
+if(NOT DEFINED ENV{CXXFLAGS})
+	set(CMAKE_CXX_FLAGS "-Wall -g")
+endif()
+
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Buscando y linkeando SFML y Box2d
