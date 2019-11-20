@@ -15,10 +15,10 @@ Bala::Bala(Scene& _myScene,
 	pixel _radius,
 	RigidBody::faction _faction):
 		GameObject(_myScene),
+		RigidBody(_radius, _faction),
 		velocity(_velocity),
 		damage(_damage),
-		radius(_radius),
-		RigidBody(_radius, _faction){};
+		radius(_radius){};
 
 
 Bala::~Bala(){};

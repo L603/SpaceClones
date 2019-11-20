@@ -12,10 +12,11 @@ class Scene;
 class Bala: public GameObject, public sf::Drawable, public RigidBody
 {
 private:
+	sf::Vector2f velocity;
+
 	hp damage;
 	pixel radius;
 
-	sf::Vector2f velocity;
 
 public:
 	Bala(Scene& _myScene,
