@@ -34,7 +34,7 @@ void Bala::update()
 	GameObject::move(velocity);
 }
 
-void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const
+void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const //Datos de la bala
 {
 	// Renderiza un círculo
 	sf::CircleShape cir(radius);

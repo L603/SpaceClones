@@ -7,7 +7,7 @@ Nave::Nave(Scene& _myScene):GameObject(_myScene){};
 
 Nave::~Nave(){};
 
-void Nave::update()
+void Nave::update() //Desplazamiento de la nave
 {
 	// Moviemiento derecha/izquierda
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -28,7 +28,7 @@ void Nave::update()
 	}
 }
 
-void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const
+void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const //Datos de la nave
 {
 	// Renderizando un círculo
 	sf::CircleShape cir(50);
