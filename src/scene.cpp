@@ -72,13 +72,14 @@ void Scene::physicsUpdate()
 			const RigidBody::faction factionB = jj.first;
 			if(jj.second)
 			{
-				for(const auto kk: rigidBodies.at(factionA))
-				{
-					for(const auto ll: rigidBodies.at(factionB))
-					{
-						kk.lock()->checkCollision(ll);
-					}
-				}
+				std::cerr << "aaaaa\n";
+				//for(const auto kk: rigidBodies.at(factionA))
+				//{
+					//for(const auto ll: rigidBodies.at(factionB))
+					//{
+						//kk.lock()->checkCollision(ll);
+					//}
+				//}
 			}
 		}
 	}
