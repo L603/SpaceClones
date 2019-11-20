@@ -35,8 +35,26 @@ void Scene::render()
 }
 void Scene::physicsUpdate()
 {
-	// TODO
-	// Hay que verificar las colisiones
+	// Creo que esta cosa verifica las colisiones.
+	// Podría estar mejor.
+	for(const auto ii: collisionMatrix)
+	{
+		const RigidBody::faction factionA = ii.first;
+		for(const auto jj: ii.second)
+		{
+			const RigidBody::faction factionB = jj.first;
+			if(jj.second)
+			{
+				for(const auto kk: rigidBodies.at(factionA))
+				{
+					for(const auto ll: rigidBodies.at(factionB))
+					{
+						kk.lock()->checkCollision(ll);
+					}
+				}
+			}
+		}
+	}
 }
 
 void Scene::update()
