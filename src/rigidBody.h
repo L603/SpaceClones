@@ -13,7 +13,7 @@ public:
 	{
 		alien,
 		nave,
-		barrera
+		escudo,
 	};
 
 protected:
