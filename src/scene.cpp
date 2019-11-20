@@ -64,15 +64,18 @@ void Scene::physicsUpdate()
 {
 	// Creo que esta cosa verifica las colisiones.
 	// Podría estar mejor.
-	for(const auto ii: collisionMatrix)
-	{
-		const RigidBody::faction factionA = ii.first;
-		for(const auto jj: ii.second)
-		{
-			const RigidBody::faction factionB = jj.first;
-			if(jj.second)
-			{
-				std::cerr << "aaaaa\n";
+
+	// Esto no funciona
+	// Hay que verificar si los vectores están vacios
+
+	//for(const auto ii: collisionMatrix)
+	//{
+		//const RigidBody::faction factionA = ii.first;
+		//for(const auto jj: ii.second)
+		//{
+			//const RigidBody::faction factionB = jj.first;
+			//if(jj.second)
+			//{
 				//for(const auto kk: rigidBodies.at(factionA))
 				//{
 					//for(const auto ll: rigidBodies.at(factionB))
@@ -80,9 +83,9 @@ void Scene::physicsUpdate()
 						//kk.lock()->checkCollision(ll);
 					//}
 				//}
-			}
-		}
-	}
+			//}
+		//}
+	//}
 }
 
 void Scene::update()
