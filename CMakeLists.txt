@@ -16,7 +16,8 @@ set(SOURCES
 	${SRC_DIR}/nave.cpp
 	${SRC_DIR}/rigidBody.cpp
 	${SRC_DIR}/damageable.cpp
-        src/escudos.cpp src/escudos.h)
+	${SRC_DIR}/escudos.cpp
+	)
 
 if(NOT DEFINED ENV{CXXFLAGS})
 	set(CMAKE_CXX_FLAGS "-Wall -g")
