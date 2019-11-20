@@ -8,14 +8,41 @@
 #include "nave.h"
 
 Scene::Scene():
-	//gravity(0.f,0.f),
-	//world(gravity),
 	window(
 		sf::VideoMode::getFullscreenModes()[0],
 		"Clones",
 		// El fullscreen no funciona si la pantalla principal no está activada.(Xorg)
 		sf::Style::Fullscreen
-	){};
+	),
+	collisionMatrix(
+		{
+			{
+				RigidBody::faction::alien,
+				{
+					{RigidBody::faction::alien,  0},
+					{RigidBody::faction::nave,   1},
+					{RigidBody::faction::escudo, 1}
+				}
+			},
+			{
+				RigidBody::faction::nave,
+				{
+					{RigidBody::faction::alien,  1},
+					{RigidBody::faction::nave,   0},
+					{RigidBody::faction::escudo, 1}
+				}
+			},
+			{
+				RigidBody::faction::escudo,
+				{
+					{RigidBody::faction::alien,  0},
+					{RigidBody::faction::nave,   0},
+					{RigidBody::faction::escudo, 0}
+				}
+			}
+		}
+	)
+	{};
 
 Scene::~Scene(){};
 
