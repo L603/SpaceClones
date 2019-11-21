@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+/// Esta clase es la base de los objetos que pueden se dañados.
 class Damageable
 {
 protected:

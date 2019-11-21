@@ -9,6 +9,7 @@
 
 class Scene;
 
+/// Balas, pueden destruir aliens, escudos y a la nave.
 class Bala: public GameObject, public sf::Drawable, public RigidBody
 {
 private:

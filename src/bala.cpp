@@ -89,6 +89,7 @@ void Bala::onCollision(std::weak_ptr<RigidBody> target)
 		switch (targetPtr->getFaction())
 		{
 			case RigidBody::faction::alien:
+			case RigidBody::faction::escudo:
 
 				damagePtr->damage(damage);
 				despawn();

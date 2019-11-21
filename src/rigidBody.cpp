@@ -13,7 +13,6 @@ RigidBody::faction RigidBody::getFaction()
 	return myFaction;
 }
 
-/// Esta función detecta si dos círculos están en colisión
 void RigidBody::checkCollision(std::weak_ptr<RigidBody> target)
 {
 	auto targetPtr = target.lock();

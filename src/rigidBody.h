@@ -6,6 +6,7 @@
 #include "gameObject.h"
 #include "types.h"
 
+/// Esta clase guarda los datos para la detección de colisiones
 class RigidBody: public sf::Transformable
 {
 public:
@@ -17,7 +18,9 @@ public:
 	};
 
 protected:
+	/// El radio del círculo colisionable
 	pixel radius;
+	/// La facción del colisionable
 	faction myFaction;
 
 	/// Esta función es llamada si dos rigidBodies chocan
@@ -26,6 +29,7 @@ protected:
 public:
 	RigidBody(pixel _radius, faction _myFaction);
 
+	/// Esta función detecta si dos círculos están en colisión
 	virtual void checkCollision(std::weak_ptr<RigidBody> target);
 	virtual ~RigidBody();
 
