@@ -7,6 +7,7 @@
 #include "gameObject.h"
 #include "scene.h"
 #include "rigidBody.h"
+#include "types.h"
 
 
 Bala::Bala(Scene& _myScene,
@@ -31,7 +32,7 @@ void Bala::update()
 	{
 		despawn();
 	}
-	GameObject::move(velocity);
+	GameObject::move(velocity*deltaTime());
 }
 
 void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const //Datos de la bala

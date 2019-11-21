@@ -22,7 +22,7 @@ void Nave::update() //Desplazamiento de la nave
 	}
 
 	// Spawneando balas
-	sf::Vector2f vel2 = sf::Vector2f(0,-2000)*deltaTime();
+	sf::Vector2f vel2 = sf::Vector2f(0,-2000);
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
 		auto i = Bala::spawn(*myScene, getPosition(), vel2, 1,5, RigidBody::nave);
