@@ -81,7 +81,7 @@ void Bala::onCollision(std::weak_ptr<RigidBody> target)
 	// Hay que detectar si el objeto colisionado es un alien
 	// obtener su puntero y destruirlo.
 	// Y al final destruir la bala y eliminarlo de la lista de GameObjects
-
+	
 	auto targetPtr = target.lock();
 	auto damagePtr = std::dynamic_pointer_cast<Damageable>(targetPtr);
 

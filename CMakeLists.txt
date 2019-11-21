@@ -17,6 +17,7 @@ set(SOURCES
 	${SRC_DIR}/rigidBody.cpp
 	${SRC_DIR}/damageable.cpp
 	${SRC_DIR}/escudos.cpp
+	${SRC_DIR}/alien.cpp
 	)
 
 if(NOT DEFINED ENV{CXXFLAGS})
