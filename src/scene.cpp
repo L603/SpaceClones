@@ -62,30 +62,39 @@ void Scene::render()
 }
 void Scene::physicsUpdate()
 {
-	// Creo que esta cosa verifica las colisiones.
-	// Podría estar mejor.
+	// Esto es O(n^2)
+	// Hay mucho que mejorar
+	for(auto ii = collisionMatrix.begin(); ii != collisionMatrix.end(); ii++)
+	{
+		auto row = ii->second;
+		RigidBody::faction factionA = ii->first;
 
-	// Esto no funciona
-	// Hay que verificar si los vectores están vacios
+		for(auto jj = row.begin(); jj != row.end(); jj++)
+		{
+			RigidBody::faction factionB = jj->first;
+			if(jj->second && rigidBodies.size() > 0)
+			{
+				auto rigidA = rigidBodies.find(factionA);
+				auto rigidB = rigidBodies.find(factionB);
 
-	//for(const auto ii: collisionMatrix)
-	//{
-		//const RigidBody::faction factionA = ii.first;
-		//for(const auto jj: ii.second)
-		//{
-			//const RigidBody::faction factionB = jj.first;
-			//if(jj.second)
-			//{
-				//for(const auto kk: rigidBodies.at(factionA))
-				//{
-					//for(const auto ll: rigidBodies.at(factionB))
-					//{
-						//kk.lock()->checkCollision(ll);
-					//}
-				//}
-			//}
-		//}
-	//}
+				// Si alguno de los vectores de rigidbodies está vacío
+				if(rigidA == rigidBodies.end() || rigidB == rigidBodies.end())
+				{
+					continue;
+				}
+				auto rigidVectorA = rigidA->second;
+				auto rigidVectorB = rigidB->second;
+
+				for(const auto kk: rigidVectorA)
+				{
+					for(const auto ll: rigidVectorB)
+					{
+						kk.lock()->checkCollision(ll);
+					}
+				}
+			}
+		}
+	}
 }
 
 void Scene::update()
