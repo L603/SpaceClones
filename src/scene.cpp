@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "scene.h"
+#include "alien.h"
 #include "nave.h"
 
 Scene::Scene():
@@ -114,7 +115,8 @@ void Scene::postUpdate()
 		[](std::shared_ptr<GameObject> i)
 		{
 			return i->isDeletable;
-		});
+		}
+	);
 	objects.erase(newEnd, objects.end());
 
 	// Esto elimina los punteros expirados
@@ -122,18 +124,36 @@ void Scene::postUpdate()
 		[](std::weak_ptr<sf::Drawable> i)
 		{
 			return i.expired();
-		});
+		}
+	);
 	renderObjects.erase(newRenderEnd, renderObjects.end());
+
+	// Esto elimina los rigidBodies expirados
+	for(auto ii = rigidBodies.begin(); ii != rigidBodies.end(); ii++)
+	{
+		auto newBodyEnd = std::remove_if(ii->second.begin(), ii->second.end(),
+			[](std::weak_ptr<RigidBody> i)
+			{
+				return i.expired();
+			}
+		);
+		ii->second.erase(newBodyEnd, ii->second.end());
+	}
 }
 
 void Scene::start()
 {
+	// Cosas necesarias para el deltaTime
 	auto start = std::chrono::system_clock::now();
 	std::chrono::system_clock::time_point lastTick;
 	std::chrono::system_clock::time_point tick = start;
 
+	// GameObjects spawneados al inicio del juego
 	auto posNave = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.8f);
 	auto nave2 = Nave::spawn(*this, posNave);
+
+	auto posAlien = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.2f);
+	auto alien = Alien::spawn(*this, posAlien);
 
 	while(window.isOpen())
 	{
@@ -153,7 +173,7 @@ void Scene::start()
 		tick = std::chrono::system_clock::now();
 
 		deltaTime = (tick - lastTick).count()*0.000000001f;
-		std::cout << deltaTime << '\n';
+		//std::cout << deltaTime << '\n';
 
 		// Actualizaciones y esas cosas
 		physicsUpdate();
