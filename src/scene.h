@@ -31,18 +31,26 @@ private:
 	std::unordered_map<RigidBody::faction,
 		std::unordered_map<RigidBody::faction, bool>> collisionMatrix;
 
-	/// Estas funciones son llamadas cada tick
 
+	/// Detecta las colisiones
 	void physicsUpdate();
+
+	/// Acutualiza a los objetos
 	void update();
+
+	/// Renderiza a los objetos
 	void render();
+
+	/// Elimina a los objetos despawneados
 	void postUpdate();
 
 public:
 	Scene();
 	virtual ~Scene();
 
+	/// La ventana del juego
 	sf::RenderWindow& getWindow();
+	/// Esta función añade los GameObject's a la lista interna de la escena.
 	std::weak_ptr<GameObject> addObject(GameObject* newObject);
 
 	void start();

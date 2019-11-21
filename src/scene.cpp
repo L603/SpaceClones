@@ -156,7 +156,6 @@ void Scene::start()
 	}
 }
 
-/// Esta función añade los GameObject's a la lista interna de la escena.
 std::weak_ptr<GameObject> Scene::addObject(GameObject* newObject)
 {
 	// El puntero libre es encapsulado
