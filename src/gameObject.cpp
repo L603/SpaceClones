@@ -1,11 +1,17 @@
 #include "gameObject.h"
 #include "scene.h"
+#include "types.h"
 
 GameObject::GameObject(Scene& _myscene):
 	myScene(&_myscene),
 	isDeletable(false){};
 
 GameObject::~GameObject(){};
+
+timeT GameObject::deltaTime()
+{
+	return myScene->deltaTime;
+}
 
 void GameObject::despawn()
 {

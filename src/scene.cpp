@@ -1,6 +1,7 @@
 #include <thread>
 #include <iostream>
 #include <chrono>
+#include <ctime>
 #include <memory>
 #include <SFML/Graphics.hpp>
 
@@ -127,6 +128,10 @@ void Scene::postUpdate()
 
 void Scene::start()
 {
+	auto start = std::chrono::system_clock::now();
+	std::chrono::system_clock::time_point lastTick;
+	std::chrono::system_clock::time_point tick = start;
+
 	auto posNave = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.8f);
 	auto nave2 = Nave::spawn(*this, posNave);
 
@@ -144,6 +149,11 @@ void Scene::start()
 					break;
 			}
 		}
+		lastTick = tick;
+		tick = std::chrono::system_clock::now();
+
+		deltaTime = (tick - lastTick).count()*0.000000001f;
+		std::cout << deltaTime << '\n';
 
 		// Actualizaciones y esas cosas
 		physicsUpdate();
@@ -151,7 +161,7 @@ void Scene::start()
 		render();
 		postUpdate();
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(20));
+		//std::this_thread::sleep_for(std::chrono::milliseconds(20));
 		window.clear();
 	}
 }

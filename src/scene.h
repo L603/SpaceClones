@@ -5,9 +5,11 @@
 #include <vector>
 #include <unordered_map>
 #include <memory>
+#include <chrono>
 
 #include "gameObject.h"
 #include "rigidBody.h"
+#include "types.h"
 
 /// Esta clase se encarga de spawnear, despawnear, actualizar y guardar
 /// punteros de los gameObjects.
@@ -43,6 +45,12 @@ private:
 
 	/// Elimina a los objetos despawneados
 	void postUpdate();
+
+	/// Tiempo desde el último tick
+	timeT deltaTime;
+
+	/// Esto es para que GameObject pueda obtener el deltaTime
+	friend timeT GameObject::deltaTime();
 
 public:
 	Scene();

@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 
+#include "types.h"
 
 class Scene;
 
@@ -19,6 +20,12 @@ protected:
 	/// El objeto es añadido a la lista de la escena y devuelve
 	/// un smart pointer.
 	std::weak_ptr<GameObject> addToList();
+
+	/// Esto obtiene el deltaTime de la escena
+	timeT deltaTime();
+
+	/// Sin esto deltaTime() no funciona
+	friend class Scene;
 public:
 	/// El objeto será eliminado en el lateUpdate() si este flag
 	/// está en true.

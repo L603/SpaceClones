@@ -10,4 +10,7 @@ using hp = int;
 // Pixeles
 using pixel = int;
 
+// Tiempo
+using timeT = float;
+
 #endif /* TYPES_H */

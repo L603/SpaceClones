@@ -9,22 +9,23 @@ Nave::~Nave(){};
 
 void Nave::update() //Desplazamiento de la nave
 {
+	pixel vel = 1000;
 	// Moviemiento derecha/izquierda
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		move(3,0);
+		move(deltaTime()*vel,0);
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		move(-3,0);
+		move(deltaTime()*-vel,0);
 	}
 
 	// Spawneando balas
-	sf::Vector2f vel = sf::Vector2f(0,-20);
+	sf::Vector2f vel2 = sf::Vector2f(0,-2000)*deltaTime();
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		auto i = Bala::spawn(*myScene, getPosition(), vel, 1,5, RigidBody::nave);
+		auto i = Bala::spawn(*myScene, getPosition(), vel2, 1,5, RigidBody::nave);
 	}
 }
 
