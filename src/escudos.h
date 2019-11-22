@@ -11,7 +11,7 @@
 
 
 class Escudos: public GameObject, public sf::Drawable, public RigidBody, public  Damageable
-        {
+{
 private:
 
 
@@ -28,8 +28,8 @@ public:
 
     void onCollision(std::weak_ptr<RigidBody> target){};
 
-    virtual void damage(hp _damage);
-        };
+virtual void damage(hp _damage);
+};
 
 
 #endif //CLONE_ESCUDOS_H

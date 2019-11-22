@@ -8,6 +8,7 @@
 #include "scene.h"
 #include "alien.h"
 #include "nave.h"
+#include "escudos.h"
 
 Scene::Scene():
 	window(
@@ -151,6 +152,7 @@ void Scene::start()
 	// GameObjects spawneados al inicio del juego
 	auto posNave = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.9f);
 	auto nave2 = Nave::spawn(*this, posNave);
+	auto escudoPrueba = Escudos::spawn(*this, posNave-sf::Vector2f(0.f, window.getSize().y*0.1f));
 
 	auto xPos = 0.1f;
 	for(size_t ii = 0; ii < 6 ; ii++)
