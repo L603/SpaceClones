@@ -1,5 +1,12 @@
 # Un clon de Space Invaders
 
+<!-- Esta cosa centra el gif-->
+<p align="center">
+
+<img width="900" src="https://user-images.githubusercontent.com/39320840/69434193-2254b700-0d0b-11ea-95ad-e88fc441decf.gif">
+
+</p>
+
 ## Instalación
 ### Linux
 #### Arch Linux
