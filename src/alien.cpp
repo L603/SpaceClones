@@ -28,6 +28,7 @@ void Alien::update()
 	RigidBody::setPosition(GameObject::getPosition());
 }
 
+
 std::weak_ptr<Alien> Alien::spawn(Scene& _myScene, sf::Vector2f position)
 {
 

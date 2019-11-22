@@ -10,7 +10,7 @@
 class Alien: public GameObject, public sf::Drawable, public RigidBody, public Damageable
 {
 private:
-	
+
 
 public:
 	Alien(Scene& myScene);

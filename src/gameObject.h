@@ -36,7 +36,11 @@ public:
 	void despawn();
 
 	/// Esta función es llamada cada tick.
-	virtual void update()=0;
+	virtual void update(){};
+
+	/// Esta función es llamada cada tick despues de update().
+	virtual void postUpdate(){};
+
 	virtual ~GameObject();
 };
 
