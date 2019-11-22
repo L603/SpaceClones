@@ -149,11 +149,21 @@ void Scene::start()
 	std::chrono::system_clock::time_point tick = start;
 
 	// GameObjects spawneados al inicio del juego
-	auto posNave = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.8f);
+	auto posNave = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.9f);
 	auto nave2 = Nave::spawn(*this, posNave);
 
-	auto posAlien = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.2f);
-	auto alien = Alien::spawn(*this, posAlien);
+	auto xPos = 0.1f;
+	for(size_t ii = 0; ii < 6 ; ii++)
+	{
+		auto yPos = 0.1f;
+		for(size_t jj = 0; jj < 5 ; jj++)
+		{
+			auto posAlien = sf::Vector2f(window.getSize().x*xPos, window.getSize().y*yPos);
+			Alien::spawn(*this, posAlien);
+			yPos += (0.5f-0.1f)/4.f;
+		}
+		xPos += (0.9f-0.1f)/5.f;
+	}
 
 	while(window.isOpen())
 	{
