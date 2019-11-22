@@ -23,7 +23,7 @@ void Escudos::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
     cir.setPosition(pos);
 
-    cir.setFillColor(sf::Color(75, 201, 45));
+    cir.setFillColor(sf::Color(128, 128, 128));
 
     target.draw(cir);
 }
@@ -53,7 +53,7 @@ std::weak_ptr<Escudos> Escudos::spawn(Scene& _myScene, sf::Vector2f position)
 
 void Escudos::damage(hp _damage)
 {
-    life -= _damage;
+    life <_damage;
     if(life <= 0)
         despawn();
 }

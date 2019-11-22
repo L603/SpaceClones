@@ -152,7 +152,6 @@ void Scene::start()
 	// GameObjects spawneados al inicio del juego
 	auto posNave = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.9f);
 	auto nave2 = Nave::spawn(*this, posNave);
-	auto escudoPrueba = Escudos::spawn(*this, posNave-sf::Vector2f(0.f, window.getSize().y*0.1f));
 
 	auto xPos = 0.1f;
 	for(size_t ii = 0; ii < 6 ; ii++)
@@ -166,6 +165,19 @@ void Scene::start()
 		}
 		xPos += (0.9f-0.1f)/5.f;
 	}
+
+    auto gPos=0.7f;
+	auto ggPos=0.0001f;
+
+    for(size_t a=0; a<50; a++){
+        auto posEscudos=sf::Vector2f(window.getSize().x*ggPos, window.getSize().y*gPos);
+        auto escudos3=Escudos::spawn(*this,posEscudos);
+        ggPos+=(0.5f-0.1f)/100.f;
+    }
+
+
+
+
 
 	while(window.isOpen())
 	{
