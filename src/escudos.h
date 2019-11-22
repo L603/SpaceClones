@@ -7,11 +7,13 @@
 
 #include "damageable.h"
 #include "gameObject.h"
-#include <SFML/Graphics.hpp>
+#include "rigidBody.h"
 
-class Escudos: public GameObject, public sf::Drawable{
+
+class Escudos: public GameObject, public sf::Drawable, public RigidBody, public  Damageable
+        {
 private:
-    hp life;
+
 
 public:
     explicit Escudos(Scene& _myScene);
@@ -24,14 +26,10 @@ public:
 
     static std::weak_ptr<Escudos> spawn(Scene& _myScene, sf::Vector2f position);
 
+    void onCollision(std::weak_ptr<RigidBody> target){};
 
-
-
-
-
-
-
-};
+    virtual void damage(hp _damage);
+        };
 
 
 #endif //CLONE_ESCUDOS_H
