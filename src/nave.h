@@ -20,10 +20,10 @@ public:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
 
 	/// Esta función es llamada una vez por tick.
-	virtual void update();
+    virtual void update();
 
 	/// Spawnea una nueva nave y retorna un puntero
-	static std::weak_ptr<Nave> spawn(Scene& _myScene, sf::Vector2f position);
+    static std::weak_ptr<Nave> spawn(Scene& _myScene, sf::Vector2f position);
 };
 
 #endif /* NAVE_H */
