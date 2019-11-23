@@ -6,7 +6,7 @@
 
 Escudos::Escudos(Scene &_myScene):GameObject(_myScene),
                               RigidBody(10,RigidBody::faction::escudo),
-                              Damageable(99999999)
+                              Damageable(10)
 {};
 
 Escudos::~Escudos(){};
@@ -53,7 +53,7 @@ std::weak_ptr<Escudos> Escudos::spawn(Scene& _myScene, sf::Vector2f position)
 
 void Escudos::damage(hp _damage)
 {
-    life <_damage;
+    life -= _damage;
     if(life <= 0)
         despawn();
 }

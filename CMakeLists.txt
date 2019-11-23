@@ -19,16 +19,17 @@ set(SOURCES
 	${SRC_DIR}/escudos.cpp
 	${SRC_DIR}/alien.cpp
 	)
+set(CMAKE_CXX_STANDARD 17)
 
 if(NOT DEFINED ENV{CXXFLAGS})
 	set(CMAKE_CXX_FLAGS "-Wall -g")
 endif()
 
+# El programa en sí
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-# Buscando y linkeando SFML y Box2d
+# Buscando y linkeando SFML
 pkg_check_modules(SFML sfml-all)
-
 
 target_link_libraries(${PROJECT_NAME}
 	sfml-system
