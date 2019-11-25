@@ -12,6 +12,7 @@ AlienSpawner::~AlienSpawner(){};
 
 void AlienSpawner::spawnAliens()
 {
+	aliens.clear();
 	// Aliens
 	auto xPos = 0.1f;
 	for(size_t ii = 0; ii < 6 ; ii++)
@@ -31,12 +32,14 @@ void AlienSpawner::spawnAliens()
 
 void AlienSpawner::update()
 {
+	bool isEmpty = true;
 	for(auto ii = aliens.begin(); ii != aliens.end(); ii++)
 	{
 		for(auto jj = ii->begin(); jj != ii->end(); jj++)
 		{
 			if(!jj->expired())
 			{
+				isEmpty = false;
 				sf::Vector2f deltaPos(alienVel*deltaTime(), 0.f);
 				jj->lock()->GameObject::move(deltaPos);
 			}
@@ -63,6 +66,17 @@ void AlienSpawner::update()
 	}
 
 	timeTank += deltaTime();
+
+	// Reseteando si ya no quedan aliens
+	if(isEmpty)
+	{
+		spawnAliens();
+		timeTank = 0.f;
+		if(alienVel < 0)
+		{
+			alienVel *= -1;
+		}
+	}
 }
 
 std::weak_ptr<AlienSpawner> AlienSpawner::spawn(Scene& _myScene)
