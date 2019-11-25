@@ -166,14 +166,40 @@ void Scene::start()
 		xPos += (0.9f-0.1f)/5.f;
 	}
 
-    auto gPos=0.7f;
-	auto ggPos=0.0001f;
+    //Escudo Izquierdo
+	auto gPos=0.7f;
+	auto ggPos=0.0f;
 
     for(size_t a=0; a<50; a++){
         auto posEscudos=sf::Vector2f(window.getSize().x*ggPos, window.getSize().y*gPos);
         auto escudos3=Escudos::spawn(*this,posEscudos);
         ggPos+=(0.5f-0.1f)/100.f;
     }
+
+    //Escudo Central
+    auto tPos=0.7f;
+    auto ttPos=0.4f;
+
+    for(size_t a=0; a<50; a++){
+        auto posEscudos=sf::Vector2f(window.getSize().x*ttPos, window.getSize().y*tPos);
+        auto escudos4=Escudos::spawn(*this,posEscudos);
+        ttPos+=(0.5f-0.1f)/100.f;
+    }
+
+
+    //Escudo Derecha
+    auto uPos=0.7f;
+    auto uuPos=0.8f;
+
+    for(size_t a=0; a<50; a++){
+        auto posEscudos=sf::Vector2f(window.getSize().x*uuPos, window.getSize().y*uPos);
+        auto escudos4=Escudos::spawn(*this,posEscudos);
+        uuPos+=(0.5f-0.1f)/100.f;
+    }
+
+
+
+
 
 
 
