@@ -1,7 +1,11 @@
 #include <memory>
 
+#include "scene.h"
 #include "nave.h"
 #include "bala.h"
+
+// Mientras nave no tenga rigidBody
+#define RADIUS 50
 
 Nave::Nave(Scene& _myScene):GameObject(_myScene){};
 
@@ -11,14 +15,23 @@ void Nave::update() //Desplazamiento de la nave
 {
 	pixel vel = 1000;
 	// Moviemiento derecha/izquierda
+	sf::Vector2f deltaPos;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		move(deltaTime()*vel,0);
+		deltaPos = sf::Vector2f(deltaTime()*vel,0);
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		move(deltaTime()*-vel,0);
+		deltaPos = sf::Vector2f(deltaTime()*-vel,0);
+	}
+	if((getPosition()+deltaPos).x < RADIUS || (getPosition()+deltaPos).x > myScene->getWindow().getSize().x-RADIUS )
+	{
+		// Choca con el borde
+	}
+	else
+	{
+		move(deltaPos);
 	}
 
 	// Spawneando balas
@@ -34,7 +47,7 @@ void Nave::update() //Desplazamiento de la nave
 void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const //Datos de la nave
 {
 	// Renderizando un círculo
-	sf::CircleShape cir(50);
+	sf::CircleShape cir(RADIUS);
 
 	sf::Vector2f pos = getPosition();
 
