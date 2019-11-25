@@ -7,6 +7,7 @@
 
 #include "scene.h"
 #include "alien.h"
+#include "alienSpawner.h"
 #include "nave.h"
 #include "escudos.h"
 
@@ -154,18 +155,8 @@ void Scene::start()
 	auto nave2 = Nave::spawn(*this, posNave);
 
 	// Aliens
-	auto xPos = 0.1f;
-	for(size_t ii = 0; ii < 6 ; ii++)
-	{
-		auto yPos = 0.1f;
-		for(size_t jj = 0; jj < 5 ; jj++)
-		{
-			auto posAlien = sf::Vector2f(window.getSize().x*xPos, window.getSize().y*yPos);
-			Alien::spawn(*this, posAlien);
-			yPos += (0.5f-0.1f)/4.f;
-		}
-		xPos += (0.9f-0.1f)/5.f;
-	}
+	auto spawner = AlienSpawner::spawn(*this);
+	spawner.lock()->spawnAliens();
 
 	//Escudo Izquierdo
 	auto gPos=0.7f;
