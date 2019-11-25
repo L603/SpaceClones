@@ -153,6 +153,7 @@ void Scene::start()
 	auto posNave = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.9f);
 	auto nave2 = Nave::spawn(*this, posNave);
 
+	// Aliens
 	auto xPos = 0.1f;
 	for(size_t ii = 0; ii < 6 ; ii++)
 	{
@@ -166,44 +167,38 @@ void Scene::start()
 		xPos += (0.9f-0.1f)/5.f;
 	}
 
-    //Escudo Izquierdo
+	//Escudo Izquierdo
 	auto gPos=0.7f;
 	auto ggPos=0.0f;
 
-    for(size_t a=0; a<50; a++){
-        auto posEscudos=sf::Vector2f(window.getSize().x*ggPos, window.getSize().y*gPos);
-        auto escudos3=Escudos::spawn(*this,posEscudos);
-        ggPos+=(0.5f-0.1f)/100.f;
-    }
+	for(size_t a=0; a<50; a++)
+	{
+		auto posEscudos=sf::Vector2f(window.getSize().x*ggPos, window.getSize().y*gPos);
+		auto escudos3=Escudos::spawn(*this,posEscudos);
+		ggPos+=(0.5f-0.1f)/100.f;
+	}
 
-    //Escudo Central
-    auto tPos=0.7f;
-    auto ttPos=0.4f;
+	//Escudo Central
+	auto tPos=0.7f;
+	auto ttPos=0.4f;
 
-    for(size_t a=0; a<50; a++){
-        auto posEscudos=sf::Vector2f(window.getSize().x*ttPos, window.getSize().y*tPos);
-        auto escudos4=Escudos::spawn(*this,posEscudos);
-        ttPos+=(0.5f-0.1f)/100.f;
-    }
-
-
-    //Escudo Derecha
-    auto uPos=0.7f;
-    auto uuPos=0.8f;
-
-    for(size_t a=0; a<50; a++){
-        auto posEscudos=sf::Vector2f(window.getSize().x*uuPos, window.getSize().y*uPos);
-        auto escudos4=Escudos::spawn(*this,posEscudos);
-        uuPos+=(0.5f-0.1f)/100.f;
-    }
+	for(size_t a=0; a<50; a++)
+	{
+		auto posEscudos=sf::Vector2f(window.getSize().x*ttPos, window.getSize().y*tPos);
+		auto escudos4=Escudos::spawn(*this,posEscudos);
+		ttPos+=(0.5f-0.1f)/100.f;
+	}
 
 
+	//Escudo Derecha
+	auto uPos=0.7f;
+	auto uuPos=0.8f;
 
-
-
-
-
-
+	for(size_t a=0; a<50; a++){
+		auto posEscudos=sf::Vector2f(window.getSize().x*uuPos, window.getSize().y*uPos);
+		auto escudos4=Escudos::spawn(*this,posEscudos);
+		uuPos+=(0.5f-0.1f)/100.f;
+	}
 
 	while(window.isOpen())
 	{
@@ -223,7 +218,6 @@ void Scene::start()
 		tick = std::chrono::system_clock::now();
 
 		deltaTime = (tick - lastTick).count()*0.000000001f;
-		//std::cout << deltaTime << '\n';
 
 		// Actualizaciones y esas cosas
 		physicsUpdate();
@@ -231,7 +225,6 @@ void Scene::start()
 		render();
 		postUpdate();
 
-		//std::this_thread::sleep_for(std::chrono::milliseconds(20));
 		window.clear();
 	}
 }

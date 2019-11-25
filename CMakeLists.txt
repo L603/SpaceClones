@@ -20,6 +20,7 @@ set(SOURCES
 	${SRC_DIR}/damageable.cpp
 	${SRC_DIR}/escudos.cpp
 	${SRC_DIR}/alien.cpp
+	${SRC_DIR}/alienSpawner.cpp
 	)
 set(CMAKE_CXX_STANDARD 17)
 set(DATA_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}")
