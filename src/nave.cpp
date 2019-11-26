@@ -8,8 +8,7 @@
 #define RADIUS 50
 
 Nave::Nave(Scene& _myScene):
-	GameObject(_myScene),
-	myPoints(_myScene.thePoints)
+	GameObject(_myScene)
 	{};
 
 Nave::~Nave(){};

@@ -8,6 +8,7 @@
 #include "scene.h"
 #include "rigidBody.h"
 #include "types.h"
+#include "puntaje.h"
 
 
 Bala::Bala(Scene& _myScene,
@@ -90,8 +91,9 @@ void Bala::onCollision(std::weak_ptr<RigidBody> target)
 		switch (targetPtr->getFaction())
 		{
 			case RigidBody::faction::alien:
-			case RigidBody::faction::escudo:
+				*(myScene->getPoints().lock()) += 1;
 
+			case RigidBody::faction::escudo:
 				damagePtr->damage(damage);
 				despawn();
 				break;

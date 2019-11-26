@@ -11,6 +11,7 @@
 #include "nave.h"
 #include "escudos.h"
 #include "assetCommon.h"
+#include "puntaje.h"
 
 Scene::Scene():
 	window(
@@ -47,8 +48,7 @@ Scene::Scene():
 			}
 		}
 	),
-	pathCommon(),
-	thePoints(*this, pathCommon.getFont())
+	pathGen()
 	{};
 
 Scene::~Scene(){};
@@ -56,6 +56,15 @@ Scene::~Scene(){};
 sf::RenderWindow& Scene::getWindow()
 {
 	return window;
+}
+
+AssetCommon& Scene::getPathGen()
+{
+	return pathGen;
+}
+std::weak_ptr<Puntaje> Scene::getPoints()
+{
+	return thePoints;
 }
 
 void Scene::render()
@@ -155,7 +164,10 @@ void Scene::start()
 
 	// GameObjects spawneados al inicio del juego
 	auto posNave = sf::Vector2f(window.getSize().x*0.5f, window.getSize().y*0.9f);
+	auto posPuntaje = sf::Vector2f(window.getSize().x*0.025f, window.getSize().y*0.025f);
+
 	auto nave2 = Nave::spawn(*this, posNave);
+	thePoints = Puntaje::spawn(*this, posPuntaje);
 
 	// Aliens
 	auto spawner = AlienSpawner::spawn(*this);

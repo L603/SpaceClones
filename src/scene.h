@@ -13,6 +13,7 @@
 #include "assetCommon.h"
 #include "puntaje.h"
 #include "nave.h"
+#include "bala.h"
 
 /// Esta clase se encarga de spawnear, despawnear, actualizar y guardar
 /// punteros de los gameObjects.
@@ -37,10 +38,10 @@ private:
 		std::unordered_map<RigidBody::faction, bool>> collisionMatrix;
 
 	/// Aquí están los datos necesarios para obtener el path de los assets
-	AssetCommon pathCommon;
+	AssetCommon pathGen;
 
 	/// Aquí está el puntaje
-	Puntaje thePoints;
+	std::weak_ptr<Puntaje> thePoints;
 
 	/// Detecta las colisiones
 	void physicsUpdate();
@@ -67,6 +68,13 @@ public:
 
 	/// La ventana del juego
 	sf::RenderWindow& getWindow();
+
+	/// Retorna el hacedor de paths de los assets
+	AssetCommon& getPathGen();
+
+	/// Retorna una referencia a los puntos
+	std::weak_ptr<Puntaje> getPoints();
+
 	/// Esta función añade los GameObject's a la lista interna de la escena.
 	std::weak_ptr<GameObject> addObject(GameObject* newObject);
 

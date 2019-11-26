@@ -27,7 +27,6 @@ public:
 		RigidBody::faction _faction);
 	virtual ~Bala();
 
-	void hit(GameObject* target);
 	hp getVida();
 
 	virtual void update();

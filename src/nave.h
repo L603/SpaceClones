@@ -17,9 +17,6 @@ private:
 	/// Un tanque que se llena con el tiempo pasado y se vacia al disparar.
 	timeT timeTank = 0.f;
 
-	/// El puntaje de la escena
-	Puntaje &myPoints;
-
 public:
 	Nave(Scene& _myScene);
 

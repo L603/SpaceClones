@@ -25,6 +25,8 @@ public:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
 
 	static std::weak_ptr<Puntaje> spawn(Scene& _myScene, sf::Vector2f position);
+
+	Puntaje& operator+=(const pointT ii);
 };
 
 #endif /* PUNTAJE_H */
