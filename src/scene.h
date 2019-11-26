@@ -10,6 +10,7 @@
 #include "gameObject.h"
 #include "rigidBody.h"
 #include "types.h"
+#include "assetCommon.h"
 
 /// Esta clase se encarga de spawnear, despawnear, actualizar y guardar
 /// punteros de los gameObjects.
@@ -32,6 +33,9 @@ private:
 	/// Una matriz para activar o desactivar colisiones.
 	std::unordered_map<RigidBody::faction,
 		std::unordered_map<RigidBody::faction, bool>> collisionMatrix;
+
+	/// Aquí están los datos necesarios para obtener el path de los assets
+	AssetCommon pathCommon;
 
 
 	/// Detecta las colisiones

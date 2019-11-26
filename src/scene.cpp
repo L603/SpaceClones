@@ -10,6 +10,7 @@
 #include "alienSpawner.h"
 #include "nave.h"
 #include "escudos.h"
+#include "assetCommon.h"
 
 Scene::Scene():
 	window(
@@ -45,7 +46,8 @@ Scene::Scene():
 				}
 			}
 		}
-	)
+	),
+	pathCommon()
 	{};
 
 Scene::~Scene(){};

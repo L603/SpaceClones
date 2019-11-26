@@ -21,8 +21,12 @@ set(SOURCES
 	${SRC_DIR}/escudos.cpp
 	${SRC_DIR}/alien.cpp
 	${SRC_DIR}/alienSpawner.cpp
+	${SRC_DIR}/assetCommon.cpp
+	${SRC_DIR}/assetGetter.cpp
 	)
 set(CMAKE_CXX_STANDARD 17)
+
+# Estos macros sirven para cargar los assets
 set(DATA_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}")
 set(BUILD_DATA_DIR "${CMAKE_BINARY_DIR}/share")
 set(BIN_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}")

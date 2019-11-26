@@ -15,7 +15,10 @@ Puedes instalarlo desde el [aur](https://aur.archlinux.org/packages/spaceclones-
 #### Otros distros
 Primero tienes que instalar las dependencias:
 * `cmake`
+* `fontconfig`
 * `git`
+* `grep`
+* `sed`
 * `sfml`
 
 Después debes clonar este repositorio:
