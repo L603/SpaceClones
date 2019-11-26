@@ -19,6 +19,7 @@ private:
 	void setFontPath();
 	void setFont();
 
+	friend class GameObject;
 public:
 	AssetCommon();
 	virtual ~AssetCommon();
