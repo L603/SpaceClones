@@ -65,3 +65,8 @@ void AssetCommon::recalculateAssets()
 	setPreffix();
 	setFont();
 }
+
+sf::Font& AssetCommon::getFont()
+{
+	return myFont;
+}

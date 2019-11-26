@@ -7,6 +7,9 @@
 // Vida
 using hp = int;
 
+// Puntaje
+using pointT = int;
+
 // Pixeles
 using pixel = int;
 

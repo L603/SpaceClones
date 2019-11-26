@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "gameObject.h"
+#include "puntaje.h"
 #include "types.h"
 
 /// El protagonista de este juego
@@ -15,6 +16,9 @@ private:
 
 	/// Un tanque que se llena con el tiempo pasado y se vacia al disparar.
 	timeT timeTank = 0.f;
+
+	/// El puntaje de la escena
+	Puntaje &myPoints;
 
 public:
 	Nave(Scene& _myScene);

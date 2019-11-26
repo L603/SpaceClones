@@ -11,6 +11,8 @@
 #include "rigidBody.h"
 #include "types.h"
 #include "assetCommon.h"
+#include "puntaje.h"
+#include "nave.h"
 
 /// Esta clase se encarga de spawnear, despawnear, actualizar y guardar
 /// punteros de los gameObjects.
@@ -37,6 +39,8 @@ private:
 	/// Aquí están los datos necesarios para obtener el path de los assets
 	AssetCommon pathCommon;
 
+	/// Aquí está el puntaje
+	Puntaje thePoints;
 
 	/// Detecta las colisiones
 	void physicsUpdate();
@@ -55,6 +59,7 @@ private:
 
 	/// Esto es para que GameObject pueda obtener el deltaTime
 	friend timeT GameObject::deltaTime();
+	friend Nave::Nave(Scene& _myScene);
 
 public:
 	Scene();

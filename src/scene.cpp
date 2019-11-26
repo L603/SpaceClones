@@ -47,7 +47,8 @@ Scene::Scene():
 			}
 		}
 	),
-	pathCommon()
+	pathCommon(),
+	thePoints(*this, pathCommon.getFont())
 	{};
 
 Scene::~Scene(){};

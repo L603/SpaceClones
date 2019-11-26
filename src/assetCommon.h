@@ -25,6 +25,8 @@ public:
 	virtual ~AssetCommon();
 
 	void recalculateAssets();
+
+	sf::Font& getFont();
 };
 
 #endif /* ASSETCOMMON_H */
