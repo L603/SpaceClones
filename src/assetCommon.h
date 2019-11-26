@@ -13,10 +13,17 @@ class AssetCommon
 private:
 	fs::path preffix;
 	fs::path fontPath;
+	sf::Font myFont;
+
+	void setPreffix();
+	void setFontPath();
+	void setFont();
 
 public:
 	AssetCommon();
 	virtual ~AssetCommon();
+
+	void recalculateAssets();
 };
 
 #endif /* ASSETCOMMON_H */

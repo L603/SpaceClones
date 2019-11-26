@@ -12,8 +12,13 @@
 
 AssetCommon::AssetCommon()
 {
-	// Obteniendo el preffix del path de los assets
+	recalculateAssets();
+}
 
+AssetCommon::~AssetCommon(){};
+
+void AssetCommon::setPreffix()
+{
 	fs::path currentPath = fs::current_path();
 
 	// Si el programa está corriendo donde se compiló
@@ -25,9 +30,10 @@ AssetCommon::AssetCommon()
 	{
 		preffix = fs::path(DATA_DIR);
 	}
+}
 
-	// Obteniendo el path de la fuente:
-
+void AssetCommon::setFontPath()
+{
 	FILE *fontPathFILE = popen(fontPathCmd, "r");
 	if(!fontPathFILE)
 	{
@@ -44,4 +50,18 @@ AssetCommon::AssetCommon()
 	pclose(fontPathFILE);
 }
 
-AssetCommon::~AssetCommon(){};
+void AssetCommon::setFont()
+{
+	setFontPath();
+	if(!myFont.loadFromFile(fontPath))
+	{
+		std::cerr << "No se pudo cargar la fuente\n";
+		exit(2);
+	}
+}
+
+void AssetCommon::recalculateAssets()
+{
+	setPreffix();
+	setFont();
+}
