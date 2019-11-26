@@ -22,7 +22,6 @@ set(SOURCES
 	${SRC_DIR}/alien.cpp
 	${SRC_DIR}/alienSpawner.cpp
 	${SRC_DIR}/assetCommon.cpp
-	${SRC_DIR}/assetGetter.cpp
 	)
 set(CMAKE_CXX_STANDARD 17)
 
