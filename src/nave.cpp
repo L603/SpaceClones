@@ -57,7 +57,7 @@ void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const //Datos 
 
 	cir.setPosition(pos);
 
-	cir.setFillColor(sf::Color(255, 255, 255));
+	cir.setFillColor(sf::Color(110, 110, 166));
 
 	target.draw(cir);
 }

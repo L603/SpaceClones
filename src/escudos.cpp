@@ -23,7 +23,7 @@ void Escudos::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
     cir.setPosition(pos);
 
-    cir.setFillColor(sf::Color(128, 128, 128));
+    cir.setFillColor(sf::Color(166, 110, 110));
 
     target.draw(cir);
 }

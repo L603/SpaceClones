@@ -18,7 +18,7 @@ void Alien::draw(sf::RenderTarget& target, sf::RenderStates states)const
 
 	cir.setPosition(pos);
 
-	cir.setFillColor(sf::Color(110, 235, 52));
+	cir.setFillColor(sf::Color(110, 166, 110));
 
 	target.draw(cir);
 }
