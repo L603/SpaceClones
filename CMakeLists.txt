@@ -55,6 +55,7 @@ target_link_libraries(${PROJECT_NAME}
 	sfml-system
 	sfml-window
 	sfml-graphics
+	stdc++fs
 )
 
 # }}}
