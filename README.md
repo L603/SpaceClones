@@ -22,16 +22,22 @@ Primero tienes que instalar las dependencias:
 * `sfml`
 
 Después debes clonar este repositorio:
+
 ``` bash
 git clone https://github.com/L603/SpaceClones
 ```
+
 Y al final compilarlo.
+
 ``` bash
 cd SpaceClones
 cmake .
 make
 sudo make install
 ```
+
+Si usas `Ubuntu 18.04` tendrás que usar `g++-8`,
+para que C++17 funcione.
 
 ### Windows
 Instala Linux.
