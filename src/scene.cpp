@@ -2,6 +2,7 @@
 #include <iostream>
 #include <chrono>
 #include <ctime>
+#include <cmath>
 #include <memory>
 #include <SFML/Graphics.hpp>
 
@@ -76,6 +77,25 @@ void Scene::render()
 	}
 	window.display();
 }
+
+void Scene::inputUpdate()
+{
+	xAxis = 0.f;
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		xAxis += 1.f;
+	}
+
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		xAxis += -1.f;
+	}
+
+	// Esto hace que el movimiento sea más suave.
+	// Es una equación diferencial
+	smoothxAxis = lerp(smoothxAxis, xAxis, 1- std::pow(1.f - smooth, deltaTime));
+}
+
 void Scene::physicsUpdate()
 {
 	// Esto es O(n^2)
@@ -226,6 +246,7 @@ void Scene::start()
 		deltaTime = (tick - lastTick).count()*0.000000001f;
 
 		// Actualizaciones y esas cosas
+		inputUpdate();
 		physicsUpdate();
 		update();
 		render();
@@ -256,4 +277,20 @@ std::weak_ptr<GameObject> Scene::addObject(GameObject* newObject)
 	}
 
 	return newPointer;
+}
+
+
+axisT Scene::getXAxis()
+{
+	return xAxis;
+}
+
+axisT Scene::getSmoothXAxis()
+{
+	return smoothxAxis;
+}
+
+axisT Scene::lerp(axisT a, axisT b, timeT t)
+{
+	return a + t*(b - a);
 }
