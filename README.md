@@ -20,6 +20,7 @@ Primero tienes que instalar las dependencias:
 * `grep`
 * `sed`
 * `sfml`
+* `ttf-liberation`
 
 Después debes clonar este repositorio:
 
