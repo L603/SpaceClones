@@ -43,6 +43,9 @@ private:
 	/// Aquí está el puntaje
 	std::weak_ptr<Puntaje> thePoints;
 
+	/// Actualiza el input
+	void inputUpdate();
+
 	/// Detecta las colisiones
 	void physicsUpdate();
 
@@ -57,6 +60,12 @@ private:
 
 	/// Tiempo desde el último tick
 	timeT deltaTime;
+
+	/// Axis en el eje x
+	axisT xAxis;
+
+	/// Axis en el eje x interpolado
+	axisT smoothxAxis;
 
 	/// Esto es para que GameObject pueda obtener el deltaTime
 	friend timeT GameObject::deltaTime();
@@ -79,6 +88,12 @@ public:
 	std::weak_ptr<GameObject> addObject(GameObject* newObject);
 
 	void start();
+
+	/// Retorna el axis en el eje x
+	axisT getXAxis();
+
+	/// Retorna el axis en el eje x interpolado
+	axisT getSmoothXAxis();
 };
 
 #endif /* SCENE_H */

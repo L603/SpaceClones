@@ -18,15 +18,9 @@ void Nave::update() //Desplazamiento de la nave
 	pixel vel = 1000;
 	// Moviemiento derecha/izquierda
 	sf::Vector2f deltaPos;
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		deltaPos = sf::Vector2f(deltaTime()*vel,0);
-	}
 
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		deltaPos = sf::Vector2f(deltaTime()*-vel,0);
-	}
+	deltaPos = sf::Vector2f(deltaTime()*vel*myScene->getSmoothXAxis(),0);
+
 	if((getPosition()+deltaPos).x < RADIUS || (getPosition()+deltaPos).x > myScene->getWindow().getSize().x-RADIUS )
 	{
 		// Choca con el borde

@@ -76,6 +76,21 @@ void Scene::render()
 	}
 	window.display();
 }
+
+void Scene::inputUpdate()
+{
+	xAxis = 0.f;
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		xAxis += 1.f;
+	}
+
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		xAxis += -1.f;
+	}
+}
+
 void Scene::physicsUpdate()
 {
 	// Esto es O(n^2)
@@ -226,6 +241,7 @@ void Scene::start()
 		deltaTime = (tick - lastTick).count()*0.000000001f;
 
 		// Actualizaciones y esas cosas
+		inputUpdate();
 		physicsUpdate();
 		update();
 		render();
@@ -256,4 +272,16 @@ std::weak_ptr<GameObject> Scene::addObject(GameObject* newObject)
 	}
 
 	return newPointer;
+}
+
+
+axisT Scene::getXAxis()
+{
+	return xAxis;
+}
+
+axisT Scene::getSmoothXAxis()
+{
+	//return smoothxAxis;
+	return xAxis;
 }
