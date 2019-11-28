@@ -2,6 +2,7 @@
 #include <iostream>
 #include <chrono>
 #include <ctime>
+#include <cmath>
 #include <memory>
 #include <SFML/Graphics.hpp>
 
@@ -89,6 +90,10 @@ void Scene::inputUpdate()
 	{
 		xAxis += -1.f;
 	}
+
+	// Esto hace que el movimiento sea más suave.
+	// Es una equación diferencial
+	smoothxAxis = lerp(smoothxAxis, xAxis, 1- std::pow(1.f - smooth, deltaTime));
 }
 
 void Scene::physicsUpdate()
@@ -282,6 +287,10 @@ axisT Scene::getXAxis()
 
 axisT Scene::getSmoothXAxis()
 {
-	//return smoothxAxis;
-	return xAxis;
+	return smoothxAxis;
+}
+
+axisT Scene::lerp(axisT a, axisT b, timeT t)
+{
+	return a + t*(b - a);
 }

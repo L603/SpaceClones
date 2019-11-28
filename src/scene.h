@@ -65,7 +65,10 @@ private:
 	axisT xAxis;
 
 	/// Axis en el eje x interpolado
-	axisT smoothxAxis;
+	axisT smoothxAxis = 0.f;
+
+	/// Ratio de interpolación (0 es 'a' 1 es 'b')
+	axisT smooth = 0.9995f;
 
 	/// Esto es para que GameObject pueda obtener el deltaTime
 	friend timeT GameObject::deltaTime();
@@ -94,6 +97,9 @@ public:
 
 	/// Retorna el axis en el eje x interpolado
 	axisT getSmoothXAxis();
+
+	/// lerp() es de c++20
+	static axisT lerp(axisT a, axisT b, timeT t);
 };
 
 #endif /* SCENE_H */
