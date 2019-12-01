@@ -49,12 +49,17 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 
 
 # Buscando y linkeando SFML {{{
-pkg_check_modules(SFML sfml-all)
+pkg_check_modules(SFML 
+	sfml-all
+)
+
+pkg_check_modules(FONTS
+	fontconfig
+)
 
 target_link_libraries(${PROJECT_NAME}
-	sfml-system
-	sfml-window
-	sfml-graphics
+	${SFML_LIBRARIES}
+	${FONTS_LIBRARIES}
 	stdc++fs
 )
 

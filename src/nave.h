@@ -12,7 +12,7 @@ class Nave: public GameObject, public sf::Drawable
 {
 private:
 	/// Rounds per second
-	timeT RPS = 20.f;
+	timeT RPS = 5.f;
 
 	/// Un tanque que se llena con el tiempo pasado y se vacia al disparar.
 	timeT timeTank = 0.f;

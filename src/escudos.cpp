@@ -6,7 +6,7 @@
 
 Escudos::Escudos(Scene &_myScene):GameObject(_myScene),
                               RigidBody(10,RigidBody::faction::escudo),
-                              Damageable(10)
+                              Damageable(1)
 {};
 
 Escudos::~Escudos(){};

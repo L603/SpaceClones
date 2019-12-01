@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <filesystem>
+#include <fontconfig/fontconfig.h>
 
 #include "scene.h"
 #include "types.h"
