@@ -49,11 +49,11 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 
 
 # Buscando y linkeando SFML {{{
-pkg_check_modules(SFML 
+pkg_check_modules(SFML REQUIRED
 	sfml-all
 )
 
-pkg_check_modules(FONTS
+pkg_check_modules(FONTS REQUIRED
 	fontconfig
 )
 
