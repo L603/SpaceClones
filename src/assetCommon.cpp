@@ -34,25 +34,30 @@ void AssetCommon::setPreffix()
 void AssetCommon::setFontPath()
 {
 	FcConfig* config = FcInitLoadConfigAndFonts();
-
 	FcPattern* pattern = FcNameParse((const FcChar8*)"LiberationMono-Regular");
 
+	// Por alguna razón hay que llamar estas funciones antes
+	// del FcFontMatch()
 	FcConfigSubstitute(config, pattern, FcMatchPattern);
 	FcDefaultSubstitute(pattern);
 
+	// Buscando la fuente más cercana
 	FcResult result = FcResultNoMatch;
 	FcPattern* font = FcFontMatch(config, pattern, &result);
 	if(font)
 	{
+		// Al parecer el FcPatternDestroy(font) libera esto.
+		// Solo es una referencia a un miembro de font.
 		FcChar8* file = NULL;
 		if (FcPatternGetString(font, FC_FILE, 0, &file) == FcResultMatch)
 		{
 			fontPath = (char*)file;
 		}
 	}
+
+	// Liberando memoria
 	FcPatternDestroy(font);
 	FcPatternDestroy(pattern);
-
 	FcConfigDestroy(config);
 }
 
