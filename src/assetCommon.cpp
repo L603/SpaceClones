@@ -3,12 +3,11 @@
 #include <cstdio>
 #include <ext/stdio_filebuf.h>
 #include <fstream>
+#include <fontconfig/fontconfig.h>
 
 #include "assetCommon.h"
 #include "config.h"
 #include "types.h"
-
-#define fontPathCmd "fc-list | grep LiberationMono-Regular | sed \"s/\\(.*\\):.*:.*/\\1/g\""
 
 AssetCommon::AssetCommon()
 {
@@ -34,20 +33,27 @@ void AssetCommon::setPreffix()
 
 void AssetCommon::setFontPath()
 {
-	FILE *fontPathFILE = popen(fontPathCmd, "r");
-	if(!fontPathFILE)
+	FcConfig* config = FcInitLoadConfigAndFonts();
+
+	FcPattern* pattern = FcNameParse((const FcChar8*)"LiberationMono-Regular");
+
+	FcConfigSubstitute(config, pattern, FcMatchPattern);
+	FcDefaultSubstitute(pattern);
+
+	FcResult result = FcResultNoMatch;
+	FcPattern* font = FcFontMatch(config, pattern, &result);
+	if(font)
 	{
-		std::cerr << "Fuente no encontrada\n";
-		exit(1);
+		FcChar8* file = NULL;
+		if (FcPatternGetString(font, FC_FILE, 0, &file) == FcResultMatch)
+		{
+			fontPath = (char*)file;
+		}
 	}
+	FcPatternDestroy(font);
+	FcPatternDestroy(pattern);
 
-	// Esta clase es no estándar c++ . No funciona en windows
-	__gnu_cxx::stdio_filebuf<char> _fontBuf(fontPathFILE, std::ios::in);
-	std::istream fontBuf(&_fontBuf);
-
-	fontBuf >> fontPath;
-
-	pclose(fontPathFILE);
+	FcConfigDestroy(config);
 }
 
 void AssetCommon::setFont()

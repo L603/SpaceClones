@@ -9,11 +9,11 @@
 int main(int argc, char *argv[])
 {
 
-	if(!FcInit())
-	{
-		std::cerr << "Fontconfig no funciona\n";
-		exit(3);
-	}
+	//if(!FcInit())
+	//{
+		//std::cerr << "Fontconfig no funciona\n";
+		//exit(3);
+	//}
 
 	Scene escena;
 
