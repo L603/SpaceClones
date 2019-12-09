@@ -9,12 +9,16 @@
 #include "config.h"
 #include "types.h"
 
-AssetCommon::AssetCommon()
+AssetCommon::AssetCommon():
+	config(FcInitLoadConfigAndFonts())
 {
 	recalculateAssets();
 }
 
-AssetCommon::~AssetCommon(){};
+AssetCommon::~AssetCommon()
+{
+	FcConfigDestroy(config);
+}
 
 void AssetCommon::setPreffix()
 {
@@ -31,10 +35,12 @@ void AssetCommon::setPreffix()
 	}
 }
 
-void AssetCommon::setFontPath()
+fs::path AssetCommon::getFontPath(std::string fontName)
 {
-	FcConfig* config = FcInitLoadConfigAndFonts();
-	FcPattern* pattern = FcNameParse((const FcChar8*)"LiberationMono-Regular");
+	fs::path resu;
+
+	// EL patrón de la fuente para FontConfig
+	FcPattern* pattern = FcNameParse((const FcChar8*)fontName.c_str());
 
 	// Por alguna razón hay que llamar estas funciones antes
 	// del FcFontMatch()
@@ -49,21 +55,32 @@ void AssetCommon::setFontPath()
 		// Al parecer el FcPatternDestroy(font) libera esto.
 		// Solo es una referencia a un miembro de font.
 		FcChar8* file = NULL;
-		if (FcPatternGetString(font, FC_FILE, 0, &file) == FcResultMatch)
+
+		switch (FcPatternGetString(font, FC_FILE, 0, &file))
 		{
-			fontPath = (char*)file;
+			case FcResultNoMatch:
+			case FcResultTypeMismatch:
+			case FcResultNoId:
+			case FcResultOutOfMemory:
+				std::cerr <<  "No existe ninguna fuente adecuada instalada\n";
+				exit(3);
+
+			case FcResultMatch:
+				resu = (char*)file;
+				break;
 		}
 	}
 
 	// Liberando memoria
 	FcPatternDestroy(font);
 	FcPatternDestroy(pattern);
-	FcConfigDestroy(config);
+
+	return resu;
 }
 
 void AssetCommon::setFont()
 {
-	setFontPath();
+	fontPath = getFontPath("LiberationMono");
 	if(!myFont.loadFromFile(fontPath))
 	{
 		std::cerr << "No se pudo cargar la fuente\n";

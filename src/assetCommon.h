@@ -3,6 +3,7 @@
 
 #include <filesystem>
 #include <SFML/Graphics.hpp>
+#include <fontconfig/fontconfig.h>
 
 #include "config.h"
 #include "types.h"
@@ -11,12 +12,14 @@
 class AssetCommon
 {
 private:
+	FcConfig* config;
+
 	fs::path preffix;
 	fs::path fontPath;
 	sf::Font myFont;
 
 	void setPreffix();
-	void setFontPath();
+	fs::path getFontPath(std::string fontName);
 	void setFont();
 
 	friend class GameObject;
