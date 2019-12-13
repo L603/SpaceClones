@@ -8,12 +8,17 @@
 </p>
 
 ## Instalación
+
 ### Linux
+
 #### Arch Linux
+
 Puedes instalarlo desde el [aur](https://aur.archlinux.org/packages/spaceclones-git/).
 
 #### Otros distros
+
 Primero tienes que instalar las dependencias:
+
 * `cmake`
 * `fontconfig`
 * `git`
@@ -41,6 +46,9 @@ Si usas `Ubuntu 18.04` tendrás que usar `g++-8`,
 para que C++17 funcione.
 
 ### Windows
+
 Instala Linux.
+
 ### MacOS
+
 Instala Linux.
