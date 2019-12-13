@@ -1,0 +1,15 @@
+target_sources(${PROJECT_NAME}
+	PRIVATE
+		main.cpp
+		alien.cpp
+		alienSpawner.cpp
+		assetCommon.cpp
+		bala.cpp
+		damageable.cpp
+		escudos.cpp
+		gameObject.cpp
+		nave.cpp
+		puntaje.cpp
+		rigidBody.cpp
+		scene.cpp
+)
