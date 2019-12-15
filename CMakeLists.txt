@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.13.0)
 # Módulos de cmake {{{
 include(GNUInstallDirs)
 include(FindPkgConfig)
+include(CPack)
 
 # }}}
 # El nombre del proyecto
@@ -62,3 +63,8 @@ install(TARGETS ${PROJECT_NAME}
 	DESTINATION ${CMAKE_INSTALL_BINDIR}
 	)
 #}}}
+
+# Configuración para el paquete .deb
+configure_file(CPackConfig.cmake.in
+	${CMAKE_BINARY_DIR}/CPackConfig.cmake
+)
