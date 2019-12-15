@@ -6,7 +6,12 @@ include(FindPkgConfig)
 
 # }}}
 # El nombre del proyecto
-project(space-clones)
+project(space-clones
+	VERSION 1.0
+	DESCRIPTION "Un clón de space invaders"
+	HOMEPAGE_URL "https://github.com/L603/SpaceClones"
+	LANGUAGES "CXX"
+)
 
 # El programa en sí
 add_executable(${PROJECT_NAME})
