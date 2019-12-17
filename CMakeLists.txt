@@ -59,9 +59,30 @@ target_link_libraries(${PROJECT_NAME}
 
 # }}}
 # Definiciones para la instalación {{{
+if(WIN32)
+
+	find_program(DLLS peldd)
+	if(NOT DLLS)
+		message(FATAL_ERROR "peldd not found")
+	endif()
+
+	set(DLL_DIR ${CMAKE_BINARY_DIR}/lib)
+
+	# Esta cosa copia los DLL's necesarios
+	add_custom_command(TARGET ${PROJECT_NAME}
+		POST_BUILD
+		COMMAND
+			peldd ${PROJECT_NAME}.exe -t --ignore-errors > dll_list.txt
+		COMMAND
+			mkdir --parents ${DLL_DIR}
+		COMMAND
+		bash -c "cp $(< dll_list.txt) ${DLL_DIR}"
+		VERBATIM
+	)
+endif()
 install(TARGETS ${PROJECT_NAME}
 	DESTINATION ${CMAKE_INSTALL_BINDIR}
-	)
+)
 #}}}
 
 # Configuración para el paquete .deb
