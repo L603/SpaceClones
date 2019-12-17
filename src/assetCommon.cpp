@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-#include <ext/stdio_filebuf.h>
 #include <fstream>
 #include <fontconfig/fontconfig.h>
 

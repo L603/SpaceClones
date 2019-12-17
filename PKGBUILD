@@ -1,7 +1,7 @@
 # Maintainer: Otreblan <otreblain@gmail.com>
 
 pkgname=spaceclones-git
-pkgver=r11.2e85620
+pkgver=v1.0.r11.g9d397dc
 pkgrel=1
 epoch=
 pkgdesc="Clon de Space invaders"
