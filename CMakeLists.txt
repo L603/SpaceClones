@@ -51,10 +51,26 @@ configure_file(config.h.in
 pkg_check_modules(SFML REQUIRED sfml-all)
 pkg_check_modules(FONTS REQUIRED fontconfig)
 
+# Includes para que las librerías funcionen
+target_include_directories(${PROJECT_NAME}
+	PRIVATE
+		${SFML_INCLUDE_DIRS}
+		${FONTS_INCLUDE_DIRS}
+)
+
+# Otros flags
+target_compile_definitions(${PROJECT_NAME}
+	PRIVATE
+		${SFML_CFLAGS_OTHER}
+		${FONTS_CFLAGS_OTHER}
+)
+
+# Linkeado
 target_link_libraries(${PROJECT_NAME}
-	${SFML_LIBRARIES}
-	${FONTS_LIBRARIES}
-	stdc++fs
+	PRIVATE
+		${SFML_LIBRARIES}
+		${FONTS_LIBRARIES}
+		stdc++fs
 )
 
 # }}}
