@@ -13,3 +13,18 @@ target_sources(${PROJECT_NAME}
 		rigidBody.cpp
 		scene.cpp
 )
+
+target_precompile_headers(${PROJECT_NAME}
+	PRIVATE
+		alien.h
+		alienSpawner.h
+		assetCommon.h
+		bala.h
+		damageable.h
+		escudos.h
+		gameObject.h
+		nave.h
+		puntaje.h
+		rigidBody.h
+		scene.h
+)

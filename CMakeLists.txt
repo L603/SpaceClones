@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13.0)
+cmake_minimum_required(VERSION 3.16.0)
 
 # Módulos de cmake {{{
 include(GNUInstallDirs)
@@ -14,6 +14,16 @@ project(space-clones
 	LANGUAGES "CXX"
 )
 
+# Variables por default
+set(CMAKE_DISABLE_PRECOMPILE_HEADERS ON
+	CACHE BOOL
+	"La compilación incremental demora más si está en OFF."
+)
+set(CMAKE_UNITY_BUILD OFF
+	CACHE BOOL
+	"ccls no funciona con esto en ON."
+)
+
 # El programa en sí
 add_executable(${PROJECT_NAME})
 
@@ -23,7 +33,10 @@ cmake_policy(SET CMP0076 NEW)
 add_subdirectory(src)
 
 # El estandard de C++
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
+set_target_properties(${PROJECT_NAME}
+	PROPERTIES
+		CXX_STANDARD 17
+)
 
 # Estos macros sirven para cargar los assets {{{
 set(DATA_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}")
@@ -58,7 +71,7 @@ target_include_directories(${PROJECT_NAME}
 		${FONTS_INCLUDE_DIRS}
 )
 
-# Otros flags
+# Definiciones de macros
 target_compile_definitions(${PROJECT_NAME}
 	PRIVATE
 		${SFML_CFLAGS_OTHER}

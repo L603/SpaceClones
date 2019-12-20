@@ -32,7 +32,10 @@ pkgver() {
 
 build() {
 	cd "${pkgname}/build" || exit 1
-	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	cmake \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_UNITY_BUILD=ON \
+		..
 	make
 }
 
