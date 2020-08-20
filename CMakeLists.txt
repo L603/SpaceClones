@@ -1,11 +1,5 @@
 cmake_minimum_required(VERSION 3.16.0)
 
-# Módulos de cmake {{{
-include(GNUInstallDirs)
-include(FindPkgConfig)
-include(CPack)
-
-# }}}
 # El nombre del proyecto
 project(space-clones
 	VERSION 1.0
@@ -13,6 +7,10 @@ project(space-clones
 	HOMEPAGE_URL "https://github.com/L603/SpaceClones"
 	LANGUAGES "CXX"
 )
+
+include(GNUInstallDirs)
+include(FindPkgConfig)
+include(CPack)
 
 # Variables por default
 set(CMAKE_DISABLE_PRECOMPILE_HEADERS ON
@@ -38,19 +36,16 @@ set_target_properties(${PROJECT_NAME}
 		CXX_STANDARD 17
 )
 
-# Estos macros sirven para cargar los assets {{{
+# Estos macros sirven para cargar los assets
 set(DATA_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}")
 set(BUILD_DATA_DIR "${CMAKE_BINARY_DIR}/share")
 set(BIN_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}")
 set(BUILD_BIN_DIR "${CMAKE_BINARY_DIR}")
 
-# }}}
-# Flags para el compilador {{{
+# Flags para el compilador
 if(NOT DEFINED ENV{CXXFLAGS})
 	set(CMAKE_CXX_FLAGS "-Wall -g")
 endif()
-
-# }}}
 
 # El header de configuración
 target_include_directories(${PROJECT_NAME}
@@ -60,38 +55,22 @@ configure_file(config.h.in
 	${CMAKE_BINARY_DIR}/config.h
 )
 
-# Buscando y linkeando SFML {{{
-pkg_check_modules(SFML REQUIRED sfml-all)
-pkg_check_modules(FONTS REQUIRED fontconfig)
-
-# Includes para que las librerías funcionen
-target_include_directories(${PROJECT_NAME}
-	PRIVATE
-		${SFML_INCLUDE_DIRS}
-		${FONTS_INCLUDE_DIRS}
-)
-
-# Definiciones de macros
-target_compile_definitions(${PROJECT_NAME}
-	PRIVATE
-		${SFML_CFLAGS_OTHER}
-		${FONTS_CFLAGS_OTHER}
+pkg_check_modules(shared
+	REQUIRED IMPORTED_TARGET
+		sfml-all
+		fontconfig
 )
 
 # Linkeado
 target_link_libraries(${PROJECT_NAME}
 	PRIVATE
-		${SFML_LIBRARIES}
-		${FONTS_LIBRARIES}
-		stdc++fs
+		PkgConfig::shared
 )
 
 # }}}
-# Definiciones para la instalación {{{
 install(TARGETS ${PROJECT_NAME}
 	DESTINATION ${CMAKE_INSTALL_BINDIR}
 	)
-#}}}
 
 # Configuración para el paquete .deb
 configure_file(CPackConfig.cmake.in
