@@ -43,7 +43,7 @@ void Bala::draw(sf::RenderTarget& target, sf::RenderStates states)const //Datos 
 
 	sf::Vector2f pos = GameObject::getPosition();
 
-	cir.setOrigin(cir.getRadius(), cir.getRadius());
+	cir.setOrigin(sf::Vector2f(cir.getRadius(), cir.getRadius()));
 
 	cir.setPosition(pos);
 

@@ -32,7 +32,7 @@ void Nave::update() //Desplazamiento de la nave
 
 	// Spawneando balas
 	sf::Vector2f vel2 = sf::Vector2f(0,-1000);
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && timeTank > (1.f/RPS))
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && timeTank > (1.f/RPS))
 	{
 		auto i = Bala::spawn(*myScene, getPosition(), vel2, 1,5, RigidBody::nave);
 		timeTank = 0.f;
@@ -47,7 +47,7 @@ void Nave::draw(sf::RenderTarget& target, sf::RenderStates states)const //Datos 
 
 	sf::Vector2f pos = getPosition();
 
-	cir.setOrigin(cir.getRadius(), cir.getRadius());
+	cir.setOrigin(sf::Vector2f(cir.getRadius(), cir.getRadius()));
 
 	cir.setPosition(pos);
 

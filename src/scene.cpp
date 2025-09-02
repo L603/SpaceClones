@@ -4,6 +4,7 @@
 #include <ctime>
 #include <cmath>
 #include <memory>
+#include <algorithm>
 #include <SFML/Graphics.hpp>
 
 #include "scene.h"
@@ -19,7 +20,8 @@ Scene::Scene():
 		sf::VideoMode::getFullscreenModes()[0],
 		"Clones",
 		// El fullscreen no funciona si la pantalla principal no está activada.(Xorg)
-		sf::Style::Fullscreen
+		sf::Style::Default,
+		sf::State::Fullscreen
 	),
 	collisionMatrix(
 		{
@@ -81,12 +83,12 @@ void Scene::render()
 void Scene::inputUpdate()
 {
 	xAxis = 0.f;
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
 		xAxis += 1.f;
 	}
 
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
 		xAxis += -1.f;
 	}
@@ -228,16 +230,12 @@ void Scene::start()
 
 	while(window.isOpen())
 	{
-		sf::Event event;
-		while(window.pollEvent(event))
+		while(auto event = window.pollEvent())
 		{
-			switch(event.type)
+			// TODO: Visitor
+			if(event->is<sf::Event::Closed>())
 			{
-				case sf::Event::Closed:
-					window.close();
-					break;
-				default:
-					break;
+				window.close();
 			}
 		}
 		lastTick = tick;

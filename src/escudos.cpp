@@ -19,7 +19,7 @@ void Escudos::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
     sf::Vector2f pos = GameObject::getPosition();
 
-    cir.setOrigin(cir.getRadius(), cir.getRadius());
+	cir.setOrigin(sf::Vector2f(cir.getRadius(), cir.getRadius()));
 
     cir.setPosition(pos);
 

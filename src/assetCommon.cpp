@@ -80,7 +80,7 @@ fs::path AssetCommon::getFontPath(std::string fontName)
 void AssetCommon::setFont()
 {
 	fontPath = getFontPath("LiberationMono");
-	if(!myFont.loadFromFile(fontPath.string()))
+	if(!myFont.openFromFile(fontPath))
 	{
 		std::cerr << "No se pudo cargar la fuente\n";
 		exit(2);

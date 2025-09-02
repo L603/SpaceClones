@@ -27,7 +27,7 @@ void Puntaje::update()
 
 void Puntaje::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
-	sf::Text pointsText("Puntos: " + std::to_string(points), myFont);
+	sf::Text pointsText(myFont, "Puntos: " + std::to_string(points));
 	pointsText.setCharacterSize(30);
 
 	pointsText.setPosition(getPosition());
